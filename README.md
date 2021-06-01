@@ -3,6 +3,6 @@
 ## Esquema de la DB
 
 * Users (ID(pk), email(unique), password, name, created_at, content_watched, my_list, photo_path) default
-* Movies (ID(pk), Name, Synopsis, Duration, Year, Genre, Image)
-* Series (ID(pk), Name, Description, ChaptersNum, Image)
-* Chapters (ID(pk), Name, Description, Duration)
+* Contents (ID(pk), Name, Description, Duration, Year, Genre, Image, is_serie, chapter)
+* ContUsers (ID_user(pk, fk), ID_content(pk, fk), minute)
+* Chapters (ID(pk), ID_content(pk, fk), Name, Description, Duration)
