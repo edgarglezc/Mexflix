@@ -2,5 +2,7 @@
 
 ## Esquema de la DB
 
-usuarios [correo,contrasena,empleado o no(despues de ver el video vemos que onda con esto jajaja)]
-productos [ID,nombre,medLAncho,medAlto,precio,existencia,descuento tal vez?]
+* Users (email, password)
+* Profile (ID(pk), Name, Photo, Movieshistoric, Serieshistoric, emailUser(fk))
+* Movies (ID(pk), Name, Synopsis, Duration, Year, Genre)
+* Series (ID(pk), Name, Synopsis, ChaptersNum)
