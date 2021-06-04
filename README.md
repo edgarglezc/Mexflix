@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -60,3 +61,13 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+=======
+# Proyecto-Progra-Web
+
+## Esquema de la DB
+
+* Users (ID(pk), email(unique), password, name, created_at, content_watched, my_list, photo_path) default
+* Contents (ID(pk), Name, Description, Duration, Year, Genre, Image, is_serie, chapter)
+* ContUsers (ID_user(pk, fk), ID_content(pk, fk), minute)
+* Chapters (ID(pk), ID_content(pk, fk), Name, Description, Duration)
+>>>>>>> a2e2e97f417e4361c165ac86e5b02723ff4466be
