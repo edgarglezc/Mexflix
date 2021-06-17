@@ -60,7 +60,6 @@ class ContentController extends Controller
         // Revisar el modelo Content para ver el $fillable
 
         Content::create($request->all());
-
         return redirect()->route('content.index');
     }
 

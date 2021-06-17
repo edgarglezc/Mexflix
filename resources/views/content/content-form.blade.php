@@ -9,15 +9,14 @@
         </a>
     </p>
 
-    @if(isset($content))
-        {{-- Edición de contenido --}}
-        <form action="{{route('content.update', $content)}}" method="POST">
-            @method('PATCH') {{-- Esto para cumplir con el estandar --}}
-    @else
-        {{-- Creación de contenido --}}
-        <form action="{{route('content.store')}}" method="POST">
-    @endif
-
+@if(isset($content))
+    {{-- Edición de contenido --}}
+    <form action="{{route('content.update', $content)}}" method="POST">
+        @method('PATCH') {{-- Esto para cumplir con el estandar --}}
+@else
+    {{-- Creación de contenido --}}
+    <form action="{{route('content.store')}}" method="POST">
+@endif
         @csrf {{-- Token requerido para el envío del formulario --}}
 
         <label for="name">Nombre:</label>
