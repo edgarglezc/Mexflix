@@ -23,4 +23,6 @@ class Content extends Model
     {
         return $this->hasMany(Season::class);
     }
+
+    protected $fillable = ['name', 'description', 'duration', 'year', 'is_serie', 'seasons', 'image_path', 'link_path'];
 }

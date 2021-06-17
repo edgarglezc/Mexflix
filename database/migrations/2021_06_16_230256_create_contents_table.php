@@ -20,12 +20,12 @@ class CreateContentsTable extends Migration
             $table->text('description');
             $table->unsignedSmallInteger('duration');
             $table->string('year', 4);
+            $table->boolean('is_serie')->default(0);
+            $table->unsignedSmallInteger('seasons')->default(0);
             $table->string('image_path');
             $table->string('link_path');
-            $table->boolean('is_serie');
-            $table->unsignedSmallInteger('seasons');
-            //$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));            
             $table->timestamps();
+            //$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));            
         });
     }
 
