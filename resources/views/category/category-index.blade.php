@@ -20,8 +20,7 @@
         <input type="text" name="name" id="name" value="{{$category->name ?? ''}}">
         <input type="submit" value="Agregar">
     </form>
-    
-    <table border="1">
+    <table class="border-2 border-black">
         <thead>
             <tr>
                 <th>ID</th>
@@ -47,5 +46,5 @@
     </table>
 @endif
 @endsection
-    
-    
+
+        

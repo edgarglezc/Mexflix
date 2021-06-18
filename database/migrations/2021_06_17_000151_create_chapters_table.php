@@ -18,11 +18,11 @@ class CreateChaptersTable extends Migration
             $table->id();
             $table->foreignId('season_id')->constrained();//Llave foránea de Season
             $table->string('name');
-            $table->text('description');
+            $table->text('description');            
             $table->string('link_path');
             $table->unsignedSmallInteger('duration');
-            //$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

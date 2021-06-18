@@ -19,8 +19,9 @@ class CreateSeasonsTable extends Migration
             $table->foreignId('content_id')->constrained();//Llave foránea del contenido
             $table->text('description');
             $table->unsignedSmallInteger('chapters');
-            //$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamps();
+            $table->string('image_path', 2048);
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
