@@ -39,27 +39,26 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
-        // $content = new Content();
-        // $content->name = $request->name;
-        // $content->description = $request->description;
-        // $content->duration = $request->duration;
-        // $content->year = $request->year;
-        // if($request->is_serie == "on"){
-        //     $request->is_serie = true;
-        // }
-        // else{
-        //     $request->is_serie = false;
-        // }
-        // $content->is_serie = $request->is_serie;
-        // $content->seasons = $request->seasons;
-        // $content->image_path = $request->image_path;
-        // $content->link_path = $request->link_path;
-        // $content->save();
+        $content = new Content();
+        $content->name = $request->name;
+        $content->description = $request->description;
+        $content->duration = $request->duration;
+        $content->year = $request->year;        
+        if($request->has('is_serie')){
+            $content->is_serie = true;
+        }
+        else{
+            $content->is_serie = false;
+        }
+        $content->seasons = $request->seasons;
+        $content->image_path = $request->image_path;
+        $content->link_path = $request->link_path;
+        $content->save();
 
         // La forma de arriba ta fea, la chida es la de abajo 8)
         // Revisar el modelo Content para ver el $fillable
 
-        Content::create($request->all());
+
         return redirect()->route('content.index');
     }
 

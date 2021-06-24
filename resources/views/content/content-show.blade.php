@@ -12,7 +12,7 @@
     </p>
 
     
-    <table border="1">
+    <table class="border-separate border border-green-800">
         <thead>
             <tr>
                 <th>ID</th>
@@ -41,10 +41,16 @@
         </tbody>
     </table>
 
+    <a href="../season-form" 
+        class="bg-yellow-500 
+               rounded min-w-min 
+               max-w-min 
+               whitespace-nowrap">Agregar Temporada</a>
+
     <form action="{{route('content.destroy', $content)}}" method="POST">
         @csrf
         @method('DELETE')
-        <input type="submit" value="Eliminar Contenido">
+        <input class="bg-red-700 rounded min-w-min max-w-min whitespace-nowrap" type="submit" value="Eliminar Contenido">
     </form>
 
 @endsection

@@ -32,7 +32,7 @@
         <input type="number" name="year" id="year" maxlength="4" value="{{$content->year ?? ''}}"><br>
 
         <label for="is_serie">Serie:</label>
-        <input type="checkbox" name="is_serie" id="is_serie" value="{{$content->is_serie ?? ''}}"><br>
+        <input type="checkbox" name="is_serie"><br>        
 
         <label for="seasons">Temporadas:</label>
         <input type="number" name="seasons" id="seasons" value="{{$content->seasons ?? ''}}"><br>
