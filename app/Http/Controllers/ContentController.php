@@ -49,8 +49,7 @@ class ContentController extends Controller
         }
         else{
             $content->is_serie = false;
-        }
-        $content->seasons = $request->seasons;
+        }        
         $content->image_path = $request->image_path;
         $content->link_path = $request->link_path;
         $content->save();
