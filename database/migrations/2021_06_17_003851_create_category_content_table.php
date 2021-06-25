@@ -14,8 +14,8 @@ class CreateCategoryContentTable extends Migration
     public function up()
     {
         Schema::create('category_content', function (Blueprint $table) {
-            $table->foreignId('category_id')->constrained();
-            $table->foreignId('content_id')->constrained();
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('content_id')->constrained()->onDelete('cascade');
         });
     }
 

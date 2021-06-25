@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Content;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
@@ -69,7 +70,8 @@ class ContentController extends Controller
      */
     public function show(Content $content)
     {
-        return view('content.content-show', compact('content'));
+        $categories = Category::get();
+        return view('content.content-show', compact('content', 'categories'));
     }
 
     /**
@@ -106,5 +108,31 @@ class ContentController extends Controller
     {
         $content->delete();
         return redirect()->route('content.index');
+    }
+
+    /**
+     * Agrega el género seleccionado al contenido en cuestión 
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Content  $content
+     * @return \Illuminate\Http\Response
+     */
+    public function addCategory(Request $request, Content $content)
+    {
+        $content->categories()->attach($request->category_id);         
+        return redirect()->route('content.show', $content);
+    }
+
+    /**
+     * Elimina el género seleccionado del contenido en cuestión 
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Content  $content
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteCategory(Request $request, Content $content)
+    {        
+        $content->categories()->detach($request->category_id);
+        return redirect()->route('content.show', $content);
     }
 }

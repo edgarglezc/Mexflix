@@ -27,6 +27,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::post('programa/{content}/delete-category', [ContentController::class, 'deleteCategory'])->name('content.delete-category');
+Route::post('programa/{content}/add-category', [ContentController::class, 'addCategory'])->name('content.add-category');
 Route::resource('content', ContentController::class);
 
 Route::resource('category', CategoryController::class);

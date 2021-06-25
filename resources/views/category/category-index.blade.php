@@ -45,11 +45,10 @@
     </form>
 </div>
 
-
 <div class="flex flex-col-4 flex-wrap">
     @foreach ($categories as $category)
     <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4">
-        <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+        <div class="p-3 mr-4 text-purple-600 bg-transparent rounded-full dark:text-orange-100 dark:bg-orange-500">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -68,7 +67,7 @@
         </div>
         <div>
             <a href="{{route('category.edit', $category)}}"
-                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-blue-500 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                 aria-label="Edit">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -80,45 +79,18 @@
         <div>
             <form action="{{route('category.destroy', $category)}}" method="POST">
                 @csrf
-                @method('DELETE')
-                
+                @method('DELETE')                
                     <button type="submit"
-                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">                        
+                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-red-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">                        
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
                     </button>
-                
             </form>
         </div>
     </div>
     @endforeach
 </div>
-{{-- 
-<table class="border-2 border-black">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Género</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($categories as $category)
-        <tr>
-            <td>{{ $category->id }}</td>
-<td> {{ $category->name }} </td>
-<td><a href="{{route('category.edit', $category)}}">Editar</a></td>
-<td>
-    <form action="{{route('category.destroy', $category)}}" method="POST">
-        @csrf
-        @method('DELETE')
-        <input type="submit" value="Eliminar">
-    </form>
-</td>
-</tr>
-@endforeach
-</tbody>
-</table> --}}
 
 @endif
 
