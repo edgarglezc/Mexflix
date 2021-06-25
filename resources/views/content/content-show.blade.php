@@ -45,7 +45,13 @@
     </div>
 </div>
 
-<div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+
+<div class="grid gap-6 mb-8 md:grid-rows-5 xl:grid-rows-3 md:grid-cols-2 xl:grid-cols-4">    
+    <!-- Imagen del contenido -->
+    <div>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg" alt="naturo">
+    </div>
+    
     <!-- Tarejta del Nombre -->
     <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
         <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
@@ -160,6 +166,10 @@
                 {{$content->image_path}}
             </p>
         </div>
-    </div>
+    </div>    
 </div>
+
+<!-- Prueba de un enlace para poner la movie -->
+<iframe src="https://drive.google.com/file/d/1kTzJ5aVb-dBAefiDWpbRq1ofCOfBG6Jb/preview" width="100%" height="800px" allow="autoplay"></iframe>
+
 @endsection

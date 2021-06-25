@@ -1,50 +1,125 @@
 @extends('layouts.temp')
-
 @section('media')
-    <h1>Géneros</h1>    
+
+<h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Listado de Géneros</h2>
 
 @if(isset($category))
+<div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 mt-6">
     {{-- Edición de contenido --}}
     <form action="{{route('category.update', $category)}}" method="POST">
         @method('PATCH') {{--Para cumplir con el estandar--}}
         @csrf
         <label for="name">Editar género:</label>
         <input type="text" name="name" id="name" value="{{$category->name ?? ''}}">
-        <input type="submit" value="Guardar cambio">
+        <div>
+            <button type="submit"
+                class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                <span>Guardar cambio</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+                </svg>
+            </button>
+        </div>
     </form>
+</div>
 @else
+<div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 mt-6">
     {{-- Creación de contenido --}}
     <form action="{{route('category.store')}}" method="POST">
         @csrf
         <label for="name">Agregar género:</label>
         <input type="text" name="name" id="name" value="{{$category->name ?? ''}}">
-        <input type="submit" value="Agregar">
+        <div>
+            <button type="submit"
+                class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                <span>Guardar cambio</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+                </svg>
+            </button>
+        </div>
     </form>
-    <table class="border-2 border-black">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Género</th>                
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($categories as $category)
-            <tr>
-                <td>{{ $category->id }}</td>                     
-                <td> {{ $category->name }} </td>                  
-                <td><a href="{{route('category.edit', $category)}}">Editar</a></td>
-                <td>
-                    <form action="{{route('category.destroy', $category)}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <input type="submit" value="Eliminar">
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-@endif
-@endsection
+</div>
 
-        
+
+<div class="flex flex-col-4 flex-wrap">
+    @foreach ($categories as $category)
+    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4">
+        <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+        </div>
+        <div class="mr-2">
+            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                {{ $category->id }}.
+            </p>
+        </div>
+        <div>
+            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                {{ $category->name }}
+            </p>
+        </div>
+        <div>
+            <a href="{{route('category.edit', $category)}}"
+                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                aria-label="Edit">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+            </a>
+        </div>
+        <div>
+            <form action="{{route('category.destroy', $category)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                
+                    <button type="submit"
+                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">                        
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                    </button>
+                
+            </form>
+        </div>
+    </div>
+    @endforeach
+</div>
+{{-- 
+<table class="border-2 border-black">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Género</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($categories as $category)
+        <tr>
+            <td>{{ $category->id }}</td>
+<td> {{ $category->name }} </td>
+<td><a href="{{route('category.edit', $category)}}">Editar</a></td>
+<td>
+    <form action="{{route('category.destroy', $category)}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input type="submit" value="Eliminar">
+    </form>
+</td>
+</tr>
+@endforeach
+</tbody>
+</table> --}}
+
+@endif
+
+@endsection
