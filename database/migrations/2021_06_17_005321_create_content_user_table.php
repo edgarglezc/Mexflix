@@ -14,8 +14,8 @@ class CreateContentUserTable extends Migration
     public function up()
     {
         Schema::create('content_user', function (Blueprint $table) {
-            $table->foreignId('content_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('content_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 

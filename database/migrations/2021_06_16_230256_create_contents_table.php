@@ -21,11 +21,11 @@ class CreateContentsTable extends Migration
             $table->unsignedSmallInteger('duration');
             $table->string('year', 4);
             $table->boolean('is_serie');
-            $table->unsignedSmallInteger('seasons')->nullable()->default(0);
-            $table->string('image_path', 2048);
+            $table->unsignedSmallInteger('seasons')->default(0);
+            $table->string('image_path', 2048)->nullable();
             $table->string('link_path', 2048)->nullable();
+            $table->timestamp('updated_at')->nullable();        
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->nullable();;        
         });
     }
 

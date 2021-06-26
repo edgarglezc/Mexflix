@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class TestContentSeeder extends Seeder
+class TestChaptersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class TestContentSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Content::factory(50)->create();
+        \App\Models\Chapter::factory(100)->create();
     }
 }
