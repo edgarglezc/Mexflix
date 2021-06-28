@@ -18,8 +18,8 @@ class CreateContentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->unsignedSmallInteger('duration');
-            $table->string('year', 4);
+            $table->unsignedSmallInteger('duration')->default(0);
+            $table->string('year', 4)->default('2000');
             $table->boolean('is_serie');
             $table->unsignedSmallInteger('seasons')->default(0);
             $table->string('image_path', 2048)->nullable();

@@ -37,7 +37,9 @@ class SeasonController extends Controller
     {        
         $season = new Season();
         $season->content_id = $request->content_id;
+        $season->season = $request->season;
         $season->description = $request->description;
+        $season->year = $request->year;
         $season->image_path = $request->image_path;
         $season->save();       
         

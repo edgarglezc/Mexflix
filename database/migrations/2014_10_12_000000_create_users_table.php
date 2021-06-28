@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('password');
-            $table->boolean('is_admin');
+            $table->boolean('is_admin')->default(0);
             $table->string('profile_photo_path', 2048)->nullable();            
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

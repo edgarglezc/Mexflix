@@ -49,16 +49,16 @@ class ContentController extends Controller
         $content = new Content();
         $content->name = $request->name;
         $content->description = $request->description;
-        $content->duration = $request->duration;
-        $content->year = $request->year;        
         if($request->has('is_serie')){
             $content->is_serie = true;
         }
         else{
             $content->is_serie = false;
+            $content->duration = $request->duration;
+            $content->year = $request->year;        
+            $content->link_path = $request->link_path;
         }        
         $content->image_path = $request->image_path;
-        $content->link_path = $request->link_path;
         $content->save();
 
         return redirect()->route('content.index');

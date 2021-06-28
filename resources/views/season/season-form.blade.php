@@ -23,6 +23,13 @@
 
             <input type="hidden" name="content_id" value=" {{ $content->id }} ">
 
+            <label for="season" class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Temporada</span>
+                <input type="number"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                    name="season" id="season" value="{{$season->season ?? ''}}" />
+            </label>
+
             <label for="description" class="block mt-4 text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Descripción</span>
                 <textarea

@@ -39,6 +39,13 @@
                     id="description">{{$content->description ?? ''}}</textarea>
             </label>
 
+            <label for="is_serie" class="py-4 flex items-center dark:text-gray-400">
+                <span class="text-gray-700 dark:text-gray-400 mr-2">Serie</span>
+                <input type="checkbox"
+                    class="form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:text-orange-500"
+                    name="is_serie" id="is_serie" />
+            </label>
+
             <label for="duration" class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Duration</span>
                 <input type="number"
@@ -51,23 +58,7 @@
                 <input type="number"
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                     name="year" id="year" value="{{$content->year ?? ''}}" />
-            </label>
-
-            <label for="is_serie" class="py-4 flex items-center dark:text-gray-400">
-                <span class="text-gray-700 dark:text-gray-400 mr-2">Serie</span>
-                <input type="checkbox"
-                    class="form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:text-orange-500"
-                    name="is_serie" id="is_serie" />
-            </label>
-
-            @if(isset($content))
-            <label for="seasons" class="block text-sm">
-                <span class="text-gray-700 dark:text-gray-400">Temporadas:</span>
-                <input type="number"
-                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    name="seasons" id="seasons" value="{{$content->seasons ?? ''}}" />
-            </label>
-            @endif
+            </label>            
 
             <label for="image_path" class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Enlace de la imagen</span>
@@ -78,7 +69,7 @@
             </label>
 
             <label for="image_path" class="block text-sm">
-                <span class="text-gray-700 dark:text-gray-400">Enlace de la imagen</span>
+                <span class="text-gray-700 dark:text-gray-400">Enlace del contenido</span>
                 <input type="text"
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                     placeholder="Escribe el nombre del contenido..." name="link_path" id="link_path"

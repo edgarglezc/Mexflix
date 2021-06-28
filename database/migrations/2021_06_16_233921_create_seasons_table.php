@@ -16,7 +16,7 @@ class CreateSeasonsTable extends Migration
     {
         Schema::create('seasons', function (Blueprint $table) {
             $table->id();                        
-            $table->foreignId('content_id')->constrained();//Llave foránea del contenido
+            $table->foreignId('content_id')->constrained()->onDelete('cascade');//Llave foránea del contenido
             $table->unsignedSmallInteger('season');
             $table->text('description');
             $table->string('year', 4);
