@@ -32,6 +32,12 @@ class ContentController extends Controller
         return view('content.content-form');
     }
 
+    public function createSeason($content_id)
+    {       
+        $content = Content::where('id', $content_id)->first();        
+        return view('season.season-form', compact('content'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -54,10 +60,6 @@ class ContentController extends Controller
         $content->image_path = $request->image_path;
         $content->link_path = $request->link_path;
         $content->save();
-
-        // La forma de arriba ta fea, la chida es la de abajo 8)
-        // Revisar el modelo Content para ver el $fillable
-
 
         return redirect()->route('content.index');
     }
@@ -82,6 +84,7 @@ class ContentController extends Controller
      */
     public function edit(Content $content)
     {
+        dd($content->id);
         return view('content.content-form', compact('content'));
     }
 

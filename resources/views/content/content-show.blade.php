@@ -17,9 +17,9 @@
     </div>
 
     @if($content->is_serie)
-    <div>
+    <div>           
         <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-            href="{{ route('content.index') }}">
+            href="{{ route('content.create-season', $content->id) }}">
             Agregar Temporada
         </a>
     </div>
@@ -217,7 +217,6 @@
         </button>
     </form>
 
-
     <div class="flex flex-col-4 flex-wrap">
         @foreach ($content->categories as $category)
         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4">
@@ -250,8 +249,31 @@
         </div>
         @endforeach
     </div>
-
 </div>
+
+@if($content->is_serie)
+<div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
+    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Temporadas</h2>
+        <div class="flex flex-col-4 flex-wrap">
+        @foreach($content->seasons()->get() as $season)
+        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4">
+            <div class="p-3 mr-4 text-purple-600 bg-transparent rounded-full dark:text-orange-100 dark:bg-orange-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <div>
+                <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    {{ $season->id }}                    
+                </p>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+@endif
 
 <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Ver contenido</h2>

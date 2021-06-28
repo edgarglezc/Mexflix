@@ -22,7 +22,5 @@ class Content extends Model
     public function seasons()
     {
         return $this->hasMany(Season::class);
-    }
-
-    protected $fillable = ['name', 'description', 'duration', 'year', 'is_serie', 'seasons', 'image_path', 'link_path'];
+    }    
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\SeasonController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,8 +28,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::post('programa/{content}/delete-category', [ContentController::class, 'deleteCategory'])->name('content.delete-category');
-Route::post('programa/{content}/add-category', [ContentController::class, 'addCategory'])->name('content.add-category');
+Route::get('content/{content}/create-season', [ContentController::class, 'createSeason'])->name('content.create-season');
+Route::post('content/{content}/delete-category', [ContentController::class, 'deleteCategory'])->name('content.delete-category');
+Route::post('content/{content}/add-category', [ContentController::class, 'addCategory'])->name('content.add-category');
 Route::resource('content', ContentController::class);
 
 Route::resource('category', CategoryController::class);
+
+Route::resource('season', SeasonController::class);
