@@ -91,8 +91,7 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Content $content)
-    {
-        dd($content->id);
+    {        
         return view('content.content-form', compact('content'));
     }
 

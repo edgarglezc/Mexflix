@@ -63,31 +63,35 @@ class SeasonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Season $season)
     {
-        //
+        $content = Content::where('id', $season->content_id)->first();
+        return view('season.season-form', compact('season', 'content'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Season $season
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, Season $season)
+    {        
+        Season::where('id', $season->id)->update($request->except('_token', '_method'));
+        return redirect()->route('content.show-season',[$season->content_id, $season->id]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Season
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Season $season)
     {
-        //
+        $content = Content::where('id', $season->content_id)->first();
+        $season->delete();
+        return redirect()->route('content.show', $content);
     }
 }
