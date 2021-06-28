@@ -8,16 +8,17 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href= "{{ asset('css/style-register-login.css') }}" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>Inicio de sesion</title>
   </head>
   <body>
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
+          @include('partials.form-errors')
 
           <form method="POST" action="{{ route('login') }}" class="sign-in-form">
             @csrf
-            @include('partials.form-errors')
             <h2 class="title">Inicia sesion</h2>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
@@ -56,7 +57,7 @@
 
           <form method="POST" action="{{ route('register') }}" class="sign-up-form">
             @csrf
-            @include('partials.form-errors')
+            <!-- @include('partials.form-errors') -->
 
             <h2 class="title">Registrate</h2>
             <div class="input-field">

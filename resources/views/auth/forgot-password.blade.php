@@ -8,16 +8,18 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href= "{{ asset('css/style-register-login.css') }}" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>Recuperar contraseña</title>
   </head>
   <body>
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-
+          <div class="m-8">
+            @include('partials.form-errors')
+          </div>
 				<form method="POST" action="{{ route('password.email') }}" class="sign-in-form">
             @csrf
-            @include('partials.form-errors')
             <h2 class="title">Olvide la contraseña</h2>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
@@ -37,7 +39,7 @@
             <h3>Recordaste la contraseña ?</h3>
             <p>
               Super! Entonces por que no iniciamos sesion y disfrutamos
-							de todo el amplio catalogo de Memflix ?
+							de todo el amplio catalogo que Memflix tiene para ti ?
             </p>
             <a href="{{ route('login') }}" class="btn transparent" style="color:white;text-decoration:none;padding:0.5rem;">Iniciar sesion</a>
           </div>

@@ -1,5 +1,5 @@
 @if ($errors->any())
-    <div class="min-w-0 p-4 text-white bg-purple-600 roundedp-lg shadow-xs">
+    <div class="p-4 text-white bg-purple-600 rounded-lg w-2/4" id="error-mssg">
         <h4 class="mb-4 font-semibold">
             Verifique los campos del formulario
         </h4>
