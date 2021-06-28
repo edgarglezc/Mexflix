@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Content;
+use App\Models\Season;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 
@@ -36,6 +37,13 @@ class ContentController extends Controller
     {       
         $content = Content::where('id', $content_id)->first();        
         return view('season.season-form', compact('content'));
+    }
+
+    public function showSeason($content_id, $season_id)
+    {
+        $content = Content::where('id', $content_id)->first();        
+        $season = Season::where('id', $season_id)->first();        
+        return view('season.season-show', compact('content', 'season'));
     }
 
     /**
