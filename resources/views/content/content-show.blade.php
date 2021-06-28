@@ -34,10 +34,7 @@
     </div>
 </div>
 
-<div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
-    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Contenido</h2>
-
-
+<div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">  
     <div class="grid gap-6 mb-8 md:grid-rows-5 xl:grid-rows-3 md:grid-cols-2 xl:grid-cols-4">
         <!-- Imagen del contenido -->
         <div>
@@ -254,17 +251,15 @@
     </div>
     <div class="flex flex-col-4 flex-wrap">
     @foreach($content->seasons()->get() as $season)
-    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4 mt-6">
-        <div class="p-3 mr-4 text-purple-600 bg-transparent rounded-full dark:text-orange-100 dark:bg-orange-500">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
+    <div class="grid grid-cols-1 grid-rows-2 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4 mt-6">
+        <div>
+            <a href="{{ route('content.show-season', [$content->id, $season->id]) }}">
+                <img src="{{ $season->image_path }}" width="300px">
+            </a>
         </div>
         <div>
             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                {{ $season->id }}                    
+                Temporada {{ $season->season }}
             </p>
         </div>
     </div>

@@ -28,6 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('content/{content}/show-season/{season}', [ContentController::class, 'showSeason'])->name('content.show-season');
 Route::get('content/{content}/create-season', [ContentController::class, 'createSeason'])->name('content.create-season');
 Route::post('content/{content}/delete-category', [ContentController::class, 'deleteCategory'])->name('content.delete-category');
 Route::post('content/{content}/add-category', [ContentController::class, 'addCategory'])->name('content.add-category');
