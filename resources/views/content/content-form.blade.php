@@ -46,14 +46,14 @@
                     name="is_serie" id="is_serie" />
             </label>
 
-            <label for="duration" class="block text-sm">
+            <label for="duration" class="block text-sm" id="duration_label">
                 <span class="text-gray-700 dark:text-gray-400">Duration</span>
                 <input type="number"
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                     name="duration" id="duration" value="{{$content->duration ?? ''}}" />
             </label>
 
-            <label for="year" class="block text-sm">
+            <label for="year" class="block text-sm" id="year_label">
                 <span class="text-gray-700 dark:text-gray-400">Año</span>
                 <input type="number"
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
@@ -68,7 +68,7 @@
                     value="{{$content->image_path ?? ''}}" />
             </label>
 
-            <label for="image_path" class="block text-sm">
+            <label for="link_path" class="block text-sm" id="link_path_label">
                 <span class="text-gray-700 dark:text-gray-400">Enlace del contenido</span>
                 <input type="text"
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
@@ -88,5 +88,24 @@
                 </button>
             </div>
         </form>
+    </form>
+    <script>
+        $(document).ready(function() {
+            $('#is_serie').on('click', function(){
+                var checked = $('#is_serie').val();
+                // $("#is_serie").is(':checked')
+                if ($("#is_serie").is(':checked')) {
+                    $("#duration_label").hide();
+                    $("#year_label").hide();
+                    $("#link_path_label").hide();
+                } 
+                else {
+                    $("#duration_label").show();
+                    $("#year_label").show();
+                    $("#link_path_label").show();
+                }
+            });
+        });
+    </script>
 </div>
 @endsection
