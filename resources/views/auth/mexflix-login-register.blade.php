@@ -8,7 +8,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href= "{{ asset('css/style-register-login.css') }}" />
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/tailwind.output.css') }}" rel="stylesheet">
     <title>Inicio de sesion</title>
   </head>
   <body>
@@ -27,7 +27,7 @@
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Contraseña" name="password" id="password"/>
             </div>
-            <button class="btn solid">
+            <button class="btn solid focus:outline-none">
               {{ __('Log in') }}
             </button>
             <p class="social-text">O inicia sesion por medio de estas redes sociales</p>
@@ -85,7 +85,7 @@
 
             <!-- <input type="submit" class="btn" value="Registrarse" /> -->
 
-            <button class="btn">
+            <button class="btn focus:outline-none">
                 {{ __('Register') }}
             </button>
 
@@ -116,7 +116,7 @@
               No esperes mas! Crea una cuenta hoy en Memflix y 
               disfruta de todo su amplio catalogo !
             </p>
-            <button class="btn transparent" id="sign-up-btn">
+            <button class="btn transparent focus:outline-none" id="sign-up-btn">
               Registrarse
             </button>
           </div>
@@ -129,7 +129,7 @@
               Inicia sesion para seguir disfrutando de todo el
               contenido que Mexflix tiene ya para ti !
             </p>
-            <button class="btn transparent" id="sign-in-btn">
+            <button class="btn transparent focus:outline-none" id="sign-in-btn">
               Iniciar Sesion
             </button>
           </div>
