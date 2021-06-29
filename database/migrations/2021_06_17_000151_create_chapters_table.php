@@ -17,6 +17,7 @@ class CreateChaptersTable extends Migration
         Schema::create('chapters', function (Blueprint $table) {
             $table->id();
             $table->foreignId('season_id')->constrained()->onDelete('cascade');//Llave foránea de Season
+            $table->unsignedSmallInteger('chapter');
             $table->string('name');
             $table->text('description');            
             $table->unsignedSmallInteger('duration');

@@ -174,7 +174,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
@@ -268,7 +267,7 @@
 </div>
 @else
 <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
-    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Ver contenido</h2>
+    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Ver película</h2>
     <!-- Prueba de un enlace para poner la movie -->
     <iframe src="{{ $content->link_path }}" 
         width="100%" 

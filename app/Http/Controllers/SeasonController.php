@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Season;
 use App\Models\Content;
+use App\Models\Chapter;
 use Illuminate\Http\Request;
 
 class SeasonController extends Controller
@@ -25,6 +26,20 @@ class SeasonController extends Controller
     public function create()
     {       
         
+    }
+
+    public function createChapter($season_id)
+    {       
+        $season = Season::where('id', $season_id)->first();
+        return view('chapter.chapter-form', compact('season'));
+    }
+
+    public function showChapter($season_id, $chapter_id)
+    {       
+        $season = Season::where('id', $season_id)->first();        
+        $chapter = Chapter::where('id', $chapter_id)->first();        
+        
+        return view('chapter.chapter-show', compact('season', 'chapter'));
     }
 
     /**
