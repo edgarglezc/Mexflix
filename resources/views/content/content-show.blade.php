@@ -3,31 +3,34 @@
 
 <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4 mt-8">
     <div>
-        <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+        <a class="button-nav"
             href="{{ route('content.index') }}">
             Regresar al listado de contenido
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M8.445 14.832A1 1 0 0010 14v-2.798l5.445 3.63A1 1 0 0017 14V6a1 1 0 00-1.555-.832L10 8.798V6a1 1 0 00-1.555-.832l-6 4a1 1 0 000 1.664l6 4z" />
+            </svg>
         </a>
     </div>
 
     <div>
-        <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+        <a class="button-nav"
             href="{{ route('content.edit', $content) }}">
-            Editar
+            Editar contenido
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+            </svg>
         </a>
     </div>
-
+    <!-- M10.239 42.86L45.812 7.328l10.848 10.86L21.086 53.72z -->
     <div>
         <form action="{{route('content.destroy', $content)}}" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit"
-                class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                <span>Eliminar</span>
-                <svg class="w-4 h-4 ml-2 -mr-1" fill="currentColor" aria-hidden="true" viewBox="0 0 20 20">
-                    <path
-                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                        clip-rule="evenodd" fill-rule="evenodd">
-                    </path>
+            <button type="submit" class="button-nav-delete">
+                <span class="px-2 mr-2">Eliminar</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-6" viewBox="0 0 20 20" fill="currentColor"> 
+                <!-- #e91e1e -->
+                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                 </svg>
             </button>
         </form>
@@ -50,7 +53,7 @@
                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
             </div>
-            <div>
+            <div class="overflow-ellipsis overflow-hidden">
                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                     Nombre
                 </p>
@@ -69,11 +72,11 @@
                     </path>
                 </svg>
             </div>
-            <div>
+            <div class="overflow-ellipsis overflow-hidden">
                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                     Descripción
                 </p>
-                <p class="text-lg text-gray-700 dark:text-gray-200">
+                <p class="text-lg text-gray-700 dark:text-gray-200 overflow-ellipsis overflow-hidden">
                     {{$content->description}}
                 </p>
             </div>
@@ -89,7 +92,7 @@
                         d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                 </svg>
             </div>
-            <div>
+            <div class="overflow-ellipsis overflow-hidden">
                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                     Temporadas
                 </p>
@@ -108,7 +111,7 @@
                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
             </div>
-            <div>
+            <div class="overflow-ellipsis overflow-hidden">
                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                     Duración
                 </p>
@@ -127,7 +130,7 @@
                     </path>
                 </svg>
             </div>
-            <div>
+            <div class="overflow-ellipsis overflow-hidden">
                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                     Año
                 </p>
@@ -145,7 +148,7 @@
                         d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                 </svg>
             </div>
-            <div>
+            <div class="overflow-ellipsis overflow-hidden">
                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                     Enlace del contenido
                 </p>
@@ -164,7 +167,7 @@
                         d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                 </svg>
             </div>
-            <div>
+            <div class="overflow-ellipsis overflow-hidden">
                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                     Enlace de la imagen
                 </p>
@@ -208,7 +211,7 @@
 
     <div class="flex flex-col-4 flex-wrap">
         @foreach ($content->categories as $category)
-        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4">
+        <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4">
             <div class="p-3 mr-4 text-purple-600 bg-transparent rounded-full dark:text-orange-100 dark:bg-orange-500">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
