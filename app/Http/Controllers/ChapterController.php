@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class ChapterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('isadmin');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +22,7 @@ class ChapterController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -26,7 +32,7 @@ class ChapterController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -36,7 +42,7 @@ class ChapterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
+    { 
         $chapter = Chapter::create($request->all());        
         $season = Season::where('id', $request->season_id)->first();                
         $content = Content::where('id', $season->content_id)->first();        
@@ -51,7 +57,7 @@ class ChapterController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -61,7 +67,7 @@ class ChapterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Chapter $chapter)
-    {
+    {        
         $season = Season::where('id', $chapter->season_id)->first();
         return view('chapter.chapter-form', compact('season', 'chapter'));
     }
@@ -74,7 +80,7 @@ class ChapterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Chapter $chapter)
-    {
+    {        
         Chapter::where('id', $chapter->id)->update($request->except('_token', '_method'));
         return redirect()->route('season.show-chapter',[$chapter->season_id, $chapter->id]);
     }
@@ -86,7 +92,7 @@ class ChapterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Chapter $chapter)
-    {
+    {        
         $season = Season::where('id', $chapter->season_id)->first();
         $chapter->delete();
         return redirect()->route('content.show-season', [$season->content_id, $season->id]);

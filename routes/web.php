@@ -19,6 +19,10 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
+Route::get('/', function () {
+    return view('index');
+});
+
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -51,7 +55,7 @@ Route::get('content/{content}/show-season/{season}', [ContentController::class, 
 Route::get('content/{content}/create-season', [ContentController::class, 'createSeason'])->name('content.create-season');
 Route::post('content/{content}/delete-category', [ContentController::class, 'deleteCategory'])->name('content.delete-category');
 Route::post('content/{content}/add-category', [ContentController::class, 'addCategory'])->name('content.add-category');
-Route::resource('content', ContentController::class)->middleware('verified');
+Route::resource('content', ContentController::class);
 
 Route::resource('category', CategoryController::class);
 

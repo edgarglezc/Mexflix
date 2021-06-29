@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class SeasonController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('isadmin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +22,7 @@ class SeasonController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -29,13 +35,13 @@ class SeasonController extends Controller
     }
 
     public function createChapter($season_id)
-    {       
+    { 
         $season = Season::where('id', $season_id)->first();
         return view('chapter.chapter-form', compact('season'));
     }
 
     public function showChapter($season_id, $chapter_id)
-    {       
+    {
         $season = Season::where('id', $season_id)->first();        
         $chapter = Chapter::where('id', $chapter_id)->first();        
         
@@ -49,7 +55,7 @@ class SeasonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
+    {
         $season = new Season();
         $season->content_id = $request->content_id;
         $season->season = $request->season;
@@ -69,7 +75,7 @@ class SeasonController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -79,7 +85,7 @@ class SeasonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Season $season)
-    {
+    { 
         $content = Content::where('id', $season->content_id)->first();
         return view('season.season-form', compact('season', 'content'));
     }
@@ -92,7 +98,7 @@ class SeasonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Season $season)
-    {        
+    {
         Season::where('id', $season->id)->update($request->except('_token', '_method'));
         return redirect()->route('content.show-season',[$season->content_id, $season->id]);
     }

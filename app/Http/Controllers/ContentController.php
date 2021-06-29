@@ -10,13 +10,19 @@ use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 
 class ContentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');        
+        $this->middleware('isadmin');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {        
         $contents = Content::all();
         //$contents = Content::where('year', 'like','199%')->get();
         //Se pueden hacer consultas condicionales
@@ -29,18 +35,18 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {        
         return view('content.content-form');
     }
 
     public function createSeason($content_id)
-    {       
+    {              
         $content = Content::where('id', $content_id)->first();        
         return view('season.season-form', compact('content'));
     }
 
     public function showSeason($content_id, $season_id)
-    {
+    {        
         $content = Content::where('id', $content_id)->first();        
         $season = Season::where('id', $season_id)->first();                
         return view('season.season-show', compact('content', 'season'));
@@ -53,7 +59,7 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {        
         $content = new Content();
         $content->name = $request->name;
         $content->description = $request->description;
@@ -79,7 +85,7 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Content $content)
-    {
+    {        
         $categories = Category::get();
         return view('content.content-show', compact('content', 'categories'));
     }
@@ -91,7 +97,7 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Content $content)
-    {        
+    {      
         return view('content.content-form', compact('content'));
     }
 
@@ -103,7 +109,7 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Content $content)
-    {
+    {        
         Content::where('id', $content->id)->update($request->except('_token', '_method'));
         return redirect()->route('content.show', $content);
     }
@@ -115,7 +121,7 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Content $content)
-    {
+    {        
         $content->delete();
         return redirect()->route('content.index');
     }
@@ -128,7 +134,7 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function addCategory(Request $request, Content $content)
-    {
+    {        
         $content->categories()->attach($request->category_id);         
         return redirect()->route('content.show', $content);
     }
@@ -141,7 +147,7 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function deleteCategory(Request $request, Content $content)
-    {        
+    {         
         $content->categories()->detach($request->category_id);
         return redirect()->route('content.show', $content);
     }
