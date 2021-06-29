@@ -42,7 +42,7 @@ class ContentController extends Controller
     public function showSeason($content_id, $season_id)
     {
         $content = Content::where('id', $content_id)->first();        
-        $season = Season::where('id', $season_id)->first();        
+        $season = Season::where('id', $season_id)->first();                
         return view('season.season-show', compact('content', 'season'));
     }
 
@@ -91,8 +91,7 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Content $content)
-    {
-        dd($content->id);
+    {        
         return view('content.content-form', compact('content'));
     }
 

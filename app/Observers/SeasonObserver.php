@@ -39,7 +39,9 @@ class SeasonObserver
      */
     public function deleted(Season $season)
     {
-        //
+        $content = Content::find($season->content_id);
+        $content->seasons--;
+        $content->save();
     }
 
     /**

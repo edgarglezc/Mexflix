@@ -5,10 +5,12 @@
     <div>
         <a class="button-nav"
             href="{{ route('content.index') }}">
+
             Regresar al listado de contenido
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M8.445 14.832A1 1 0 0010 14v-2.798l5.445 3.63A1 1 0 0017 14V6a1 1 0 00-1.555-.832L10 8.798V6a1 1 0 00-1.555-.832l-6 4a1 1 0 000 1.664l6 4z" />
             </svg>
+
         </a>
     </div>
 
@@ -177,7 +179,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
@@ -271,7 +272,7 @@
 </div>
 @else
 <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
-    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Ver contenido</h2>
+    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Ver película</h2>
     <!-- Prueba de un enlace para poner la movie -->
     <iframe src="{{ $content->link_path }}" 
         width="100%" 

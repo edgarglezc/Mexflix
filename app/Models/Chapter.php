@@ -13,4 +13,6 @@ class Chapter extends Model
     {
         return $this->belongsTo(Season::class);
     }
+
+    protected $fillable = ['season_id', 'chapter', 'name', 'description', 'link_path', 'duration'];
 }

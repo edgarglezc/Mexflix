@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\SeasonController;
 use Illuminate\Support\Facades\Route;
@@ -36,4 +37,8 @@ Route::resource('content', ContentController::class);
 
 Route::resource('category', CategoryController::class);
 
+Route::get('season/{season}/show-chapter/{chapter}', [SeasonController::class, 'showChapter'])->name('season.show-chapter');
+Route::get('season/{season}/create-chapter', [SeasonController::class, 'createChapter'])->name('season.create-chapter');
 Route::resource('season', SeasonController::class);
+
+Route::resource('chapter', ChapterController::class);
