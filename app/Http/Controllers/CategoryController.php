@@ -7,13 +7,19 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('isadmin');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {        
         $categories = Category::all();
         return view('category.category-index', compact('categories'));
     }
@@ -25,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        // 
+        
     }
 
     /**
@@ -35,7 +41,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {        
         if($request->name != '')
             Category::create($request->all());
         return redirect()->route('category.index');
@@ -49,7 +55,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        
     }
 
     /**
@@ -59,7 +65,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Category $category)
-    {        
+    { 
         return view('category.category-index', compact('category'));
     }
 
@@ -71,7 +77,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Category $category)
-    {
+    {        
         Category::where('id', $category->id)->update($request->except('_token', '_method'));
         return redirect()->route('category.index');
     }
@@ -83,7 +89,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category)
-    {
+    {        
         $category->delete();
         return redirect()->route('category.index');
     }

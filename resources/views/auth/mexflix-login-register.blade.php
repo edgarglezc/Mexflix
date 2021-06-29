@@ -16,7 +16,6 @@
       <div class="forms-container">
         <div class="signin-signup">
           @include('partials.form-errors')
-
           <form method="POST" action="{{ route('login') }}" class="sign-in-form">
             @csrf
             <h2 class="title">Inicia sesion</h2>
@@ -128,7 +127,7 @@
             <h3>Ya tienes cuenta ?</h3>
             <p>
               Inicia sesion para seguir disfrutando de todo el
-              contenido que Memflix tiene ya para ti !
+              contenido que Mexflix tiene ya para ti !
             </p>
             <button class="btn transparent" id="sign-in-btn">
               Iniciar Sesion
