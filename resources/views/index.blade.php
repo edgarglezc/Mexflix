@@ -29,7 +29,6 @@
           <a class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
             Mex<span class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-green-500 to-purple-500">flix</span>
           </a>
-
           
           <a href="{{ route('login') }}" class="flex justify-between items-center px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
             Log in
