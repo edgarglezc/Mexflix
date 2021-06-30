@@ -6,8 +6,10 @@ use App\Models\Content;
 use App\Models\Season;
 use App\Models\Category;
 use Illuminate\Http\Request;
-    use Carbon\Carbon;
+use Carbon\Carbon;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ContentController extends Controller
 {
@@ -61,21 +63,26 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
-        $content = new Content();
-        $content->name = $request->name;
-        $content->description = $request->description;
-        if($request->has('is_serie')){
-            $content->is_serie = true;
-        }
-        else{
-            $content->is_serie = false;
-            $content->duration = $request->duration;
-            $content->year = $request->year;        
-            $content->link_path = $request->link_path;
-        }        
-        $content->image_path = $request->image_path;
-        $content->save();
+    {      
+        // Validación de datos
+        $request->validate([
+            'name' => 'required|string|min:1|max:255',
+            'description' => 'required|string|max:255',
+            'is_serie' => 'required',
+            'duration' => Rule::requiredIf(!$request->has('is_serie')),
+            'year' => Rule::requiredIf(!$request->has('is_serie')),
+            'image_path' => 'required|string|max:2048',
+            'link_path' => Rule::requiredIf(!$request->has('is_serie')),
+        ]);        
+
+        if($request->has('is_serie')) $request->merge(['is_serie' => 1,]);        
+        else $request->merge(['is_serie' => 0,]);      
+
+        if($request->duration == null) $request->merge(['duration' => 0,]);
+        if($request->duration == null) $request->merge(['year' => '2000',]);        
+
+        // Inserción en la tabla
+        Content::create($request->all());
 
         echo '<script type="text/javascript">
                 alert("Contenido creado correctamente");
