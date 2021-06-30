@@ -20,10 +20,12 @@
 
 <body>
     <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen}">
-        @if(Auth::user()->is_admin)
-            <!-- Sidebar -->
-            @include('layouts.side-bar')
-        @endif
+        @auth
+            @if(Auth::user()->is_admin)
+                <!-- Sidebar -->
+                @include('layouts.side-bar')
+            @endif
+        @endauth
         
         <div class="flex flex-col flex-1">
             <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
