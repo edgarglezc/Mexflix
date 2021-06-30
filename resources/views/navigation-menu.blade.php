@@ -5,9 +5,11 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('index') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                    
+                    <a class="text-lg font-bold text-gray-800 dark:text-gray-200" href="{{ url('/content/main') }}">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-green-500 to-purple-500">Mexflix</span>
                     </a>
+                    
                 </div>
 
                 <!-- Navigation Links -->

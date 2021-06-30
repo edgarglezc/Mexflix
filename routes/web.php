@@ -36,7 +36,7 @@ Route::get('/email/verify', function () {
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
 
-    return redirect('/login');
+    return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
@@ -67,7 +67,7 @@ Route::get('content/{content}/show-season/{season}', [ContentController::class, 
 Route::get('content/{content}/create-season', [ContentController::class, 'createSeason'])->name('content.create-season');
 Route::post('content/{content}/delete-category', [ContentController::class, 'deleteCategory'])->name('content.delete-category');
 Route::post('content/{content}/add-category', [ContentController::class, 'addCategory'])->name('content.add-category');
-Route::resource('content', ContentController::class);
+Route::resource('content', ContentController::class)->middleware('verified');
 
 Route::resource('category', CategoryController::class);
 
