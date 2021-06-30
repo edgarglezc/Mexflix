@@ -65,21 +65,21 @@ class ContentController extends Controller
     public function store(Request $request)
     {      
         // Validación de datos
+        if($request->has('is_serie')) $request->merge(['is_serie' => 1,]);        
+        else $request->merge(['is_serie' => 0,]);      
+
+        if($request->duration == null) $request->merge(['duration' => 0,]);
+        if($request->year == null) $request->merge(['year' => '2000',]);        
+
         $request->validate([
             'name' => 'required|string|min:1|max:255',
             'description' => 'required|string|max:255',
             'is_serie' => 'required',
             'duration' => Rule::requiredIf(!$request->has('is_serie')),
-            'year' => Rule::requiredIf(!$request->has('is_serie')),
+            'year' => ['size:4', Rule::requiredIf(!$request->has('is_serie'))],
             'image_path' => 'required|string|max:2048',
-            'link_path' => Rule::requiredIf(!$request->has('is_serie')),
+            'link_path' => ['max:2048', Rule::requiredIf(!$request->has('is_serie'))]
         ]);        
-
-        if($request->has('is_serie')) $request->merge(['is_serie' => 1,]);        
-        else $request->merge(['is_serie' => 0,]);      
-
-        if($request->duration == null) $request->merge(['duration' => 0,]);
-        if($request->duration == null) $request->merge(['year' => '2000',]);        
 
         // Inserción en la tabla
         Content::create($request->all());
@@ -120,7 +120,23 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Content $content)
-    {              
+    {     
+        if($request->has('is_serie')) $request->merge(['is_serie' => 1,]);        
+        else $request->merge(['is_serie' => 0,]);      
+
+        if($request->duration == null) $request->merge(['duration' => 0,]);
+        if($request->year == null) $request->merge(['year' => '2000',]);    
+
+        $request->validate([
+            'name' => 'required|string|min:1|max:255',
+            'description' => 'required|string|max:255',
+            'is_serie' => 'required',
+            'duration' => Rule::requiredIf(!$request->has('is_serie')),
+            'year' => Rule::requiredIf(!$request->has('is_serie')),
+            'image_path' => 'required|string|max:2048',
+            'link_path' => Rule::requiredIf(!$request->has('is_serie')),
+        ]);    
+        
         Content::where('id', $content->id)->update($request->except('_token', '_method'));
         return redirect()->route('content.show', $content)->with('message', 'Contenido actualizado exitosamente');
     }

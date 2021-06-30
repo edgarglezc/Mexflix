@@ -28,7 +28,7 @@
             <span class="text-gray-700 dark:text-gray-400">Temporada</span>
             <input type="number"
                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                name="season" id="season" value="{{$season->season ?? ''}}" />
+                name="season" id="season" value="{{ old('season') ?? $season->season ?? ''}}" />
         </label>
 
         <label for="description" class="block mt-4 text-sm">
@@ -36,14 +36,14 @@
             <textarea
                 class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                 rows="3" placeholder="Escribe la descripción del contenido..." name="description"
-                id="description">{{$season->description ?? ''}}</textarea>
+                id="description">{{ old('description') ?? $season->description ?? ''}}</textarea>
         </label>
 
         <label for="year" class="block text-sm">
             <span class="text-gray-700 dark:text-gray-400">Año</span>
             <input type="number"
                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                name="year" id="year" value="{{$season->year ?? ''}}" />
+                name="year" id="year" value="{{ old('year') ?? $season->year ?? ''}}" />
         </label>
 
         <label for="image_path" class="block text-sm">
@@ -51,7 +51,7 @@
             <input type="text"
                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                 placeholder="Escribe el nombre del contenido..." name="image_path" id="image_path"
-                value="{{$season->image_path ?? ''}}" />
+                value="{{ old('image_path') ?? $season->image_path ?? ''}}" />
         </label>
 
         <div>

@@ -43,11 +43,19 @@ class ChapterController extends Controller
      */
     public function store(Request $request)
     { 
-        Chapter::create($request->all());
-        $season = Season::where('id', $request->season_id)->first();                
+        $request->validate([
+            'chapter' => 'required',
+            'name' => 'required|string|min:1|max:255',
+            'description' => 'required|string|min:1|max:255',
+            'duration' => 'required',
+            'link_path' => 'required|string|max:2048'
+        ]);
 
-        $content = Content::where('id', $season->content_id)->first();       
-        return view('season.season-show', compact('content', 'season'))->with('message', 'Capitulo creado exitosamente');
+        Chapter::create($request->all());
+
+        $season = Season::where('id', $request->season_id)->first();                        
+
+        return redirect()->route('content.show-season',[$season->content_id, $season->id])->with('message', 'Capitulo creado exitosamente');
     }
 
     /**
@@ -82,6 +90,14 @@ class ChapterController extends Controller
      */
     public function update(Request $request, Chapter $chapter)
     {        
+        $request->validate([
+            'chapter' => 'required',
+            'name' => 'required|string|min:1|max:255',
+            'description' => 'required|string|min:1|max:255',
+            'duration' => 'required',
+            'link_path' => 'required|string|max:2048'
+        ]);
+
         Chapter::where('id', $chapter->id)->update($request->except('_token', '_method'));
         return redirect()->route('season.show-chapter',[$chapter->season_id, $chapter->id])->with('message', 'Capitulo actualizado exitosamente');
     }
