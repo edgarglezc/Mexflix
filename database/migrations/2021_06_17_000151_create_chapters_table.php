@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class CreateChaptersTable extends Migration
 {
@@ -23,7 +23,7 @@ class CreateChaptersTable extends Migration
             $table->unsignedSmallInteger('duration');
             $table->string('link_path');
             $table->timestamp('updated_at')->nullable();
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at')->default(Carbon::now()->toDateTimeString());
         });
     }
 

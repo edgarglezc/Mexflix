@@ -10,6 +10,7 @@
         </a>
     </div>
     
+    @if(Auth::user()->is_admin)
     <div>
         <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             href="{{ route('chapter.edit', $chapter) }}">
@@ -33,6 +34,7 @@
             </button>
         </form>
     </div>
+    @endif
 </div>
 
 <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">  
@@ -98,6 +100,7 @@
             </div>
         </div>
         
+        @if(Auth::user()->is_admin)
         <!-- Tarjeta del enlace al contenido -->
         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
@@ -116,6 +119,7 @@
                 </p>
             </div>
         </div>
+        @endif
     </div>
 </div>
 

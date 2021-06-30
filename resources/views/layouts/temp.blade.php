@@ -35,6 +35,7 @@
 
                     <!-- Settingsbar -->
                     @include('layouts.settings-bar')
+                    
                 </div>
             </header>
             <main class="h-full pb-16 overflow-y-auto">

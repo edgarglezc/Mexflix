@@ -12,7 +12,7 @@ class SeasonController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('isadmin');
+        $this->middleware('isadmin', ['except' => ['showChapter']]);
     }
 
     /**

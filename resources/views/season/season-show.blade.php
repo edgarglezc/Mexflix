@@ -9,13 +9,15 @@
         </a>
     </div>
     
+    @if(Auth::user()->is_admin)
+    <!-- Botón para editar la temporada -->
     <div>
         <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             href="{{ route('season.edit', $season) }}">
             Editar
         </a>
     </div>
-
+    <!-- Botón para eliminar la temporada -->
     <div>
         <form action="{{route('season.destroy', $season)}}" method="POST">
             @csrf
@@ -32,6 +34,7 @@
             </button>
         </form>
     </div>
+    @endif
 </div>
 
 
@@ -136,7 +139,7 @@
                 </p>
             </div>
         </div>
-       
+        @if(Auth::user()->is_admin)
         <!-- Enlace a la imagen -->
         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
@@ -155,17 +158,20 @@
                 </p>
             </div>
         </div>
+        @endif
     </div>
 </div>
 
 <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Capítulos</h2>    
+    @if(Auth::user()->is_admin)
     <div>           
         <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             href="{{ route('season.create-chapter', $season->id) }}">
             Agregar Capítulo
         </a>
     </div>
+    @endif
     <div class="flex flex-col-4 flex-wrap">
     @foreach($season->chapters()->get() as $chapter)
     <div class="grid grid-cols-1 grid-rows-2 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4 mt-6">

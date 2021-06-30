@@ -34,9 +34,11 @@ class SeasonFactory extends Factory
         }
         return [
             'content_id' => $content_id,
+            'season' => $this->faker->numberBetween(1,15),
             'description' => $this->faker->sentence(),
-            'chapters' => $this->faker->numberBetween(5, 20),
-            'image_path' => $this->faker->regexify('http://[a-z]{10}\.com'),
+            'year' => $this->faker->regexify('[0-9]{4}'),
+            'chapters' => 0,
+            'image_path' => "https://hips.hearstapps.com/es.h-cdn.co/fotoes/images/peliculas/interstellar/posters/18799170-1-esl-ES/Posters.jpg",
             'created_at' => $this->faker->date() . $this->faker->time(),
         ];
     }

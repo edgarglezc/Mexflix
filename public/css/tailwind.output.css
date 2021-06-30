@@ -20,6 +20,27 @@
   border-radius: 0.5rem;
 }
 
+.truncate-text{    
+    width: 30px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.a-table{
+    color: black;
+}
+
+.a-table:hover{
+    color: purple;
+}
+
 .button-nav:focus{
   --tw-bg-opacity: 1;
   background-color: rgba(124, 58, 237, var(--tw-bg-opacity));

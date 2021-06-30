@@ -14,6 +14,8 @@
         </a>
     </div>
 
+    @if(Auth::user()->is_admin)
+    <!-- Botón para editar contenido -->
     <div>
         <a class="button-nav"
             href="{{ route('content.edit', $content) }}">
@@ -23,7 +25,8 @@
             </svg>
         </a>
     </div>
-    <!-- M10.239 42.86L45.812 7.328l10.848 10.86L21.086 53.72z -->
+    
+    <!-- Botón para eliminar contenido -->
     <div>
         <form action="{{route('content.destroy', $content)}}" method="POST">
             @csrf
@@ -37,6 +40,7 @@
             </button>
         </form>
     </div>
+    @endif
 </div>
 
 <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">  
@@ -141,6 +145,7 @@
                 </p>
             </div>
         </div>
+        @if(Auth::user()->is_admin)
         <!-- Tarjeta del enlace al contenido -->
         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
@@ -160,6 +165,8 @@
             </div>
         </div>
         @endif
+        @endif
+        @if(Auth::user()->is_admin)
         <!-- Enlace a la imagen -->
         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
@@ -178,11 +185,14 @@
                 </p>
             </div>
         </div>
+        @endif
     </div>
 </div>
 
 <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Géneros</h2>
+     <!-- Si el usuario es admin, puede agregar géneros al contenido -->
+    @if(Auth::user()->is_admin)
     <form action="{{ route('content.add-category', $content->id) }}" method="POST">
         @csrf
         <label class="block mt-4 text-sm">
@@ -206,7 +216,7 @@
             </svg>
         </button>
     </form>
-
+    @endif
     <div class="flex flex-col-4 flex-wrap">
         @foreach ($content->categories as $category)
         <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4">
@@ -222,6 +232,8 @@
                     {{ $category->name }}
                 </p>
             </div>
+            <!-- Si el usuario es admin, puede eliminar los géneros -->
+            @if(Auth::user()->is_admin)
             <div>
                 <form action="{{route('content.delete-category', $content->id)}}" method="POST">
                     @csrf
@@ -236,6 +248,7 @@
                     </button>
                 </form>
             </div>
+            @endif
         </div>
         @endforeach
     </div>
@@ -244,12 +257,14 @@
 @if($content->is_serie)
 <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Temporadas</h2>    
+    @if(Auth::user()->is_admin)
     <div>           
         <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             href="{{ route('content.create-season', $content->id) }}">
             Agregar Temporada
         </a>
     </div>
+    @endif
     <div class="flex flex-col-4 flex-wrap">
     @foreach($content->seasons()->get() as $season)
     <div class="grid grid-cols-1 grid-rows-2 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4 mt-6">

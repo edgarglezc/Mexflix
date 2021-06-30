@@ -18,82 +18,55 @@
                 <tr
                     class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                     <th class="px-4 py-3">ID</th>
-                    <th class="px-4 py-3">Nombre</th>
-                    <th class="px-4 py-3">Descripción</th>
-                    <th class="px-4 py-3">Duración</th>
-                    <th class="px-4 py-3">Año</th>
-                    <th class="px-4 py-3">Serie</th>
-                    <th class="px-4 py-3">Temporadas</th>
-                    <th class="px-4 py-3">Enlace Imagen</th>
-                    <th class="px-4 py-3">Enlace Contenido</th>
+                    <th class="px-4 py-3">Nombre</th>                    
+                    <th class="px-4 py-3">Tipo</th>                    
+                    <th class="px-4 py-3">Editado el</th>
+                    <th class="px-4 py-3">Creado el</th>
+                    <th class="px-4 py-3">Acciones</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                 @foreach ($contents as $content)
                 <tr class="text-gray-700 dark:text-gray-400">
-
                     <!-- ID -->
                     <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
-                            <!-- Avatar with inset shadow -->
-                            {{-- <div
-class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
->
-<img
-class="object-cover w-full h-full rounded-full"
-src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-alt=""
-loading="lazy"
-/>
-<div
-class="absolute inset-0 rounded-full shadow-inner"
-aria-hidden="true"
-></div>
-</div> --}}
-                            <div>
-                                <p>{{ $content->id }}</p>
-                            </div>
+                            <p>{{ $content->id }}</p>
                         </div>
                     </td>
 
                     <!-- NOMBRE -->
                     <td class="px-4 py-3 text-sm">
-                        <a class="font-semibold" href="{{route('content.show', $content->id)}}">{{ $content->name }}</a>
-                    </td>
-
-                    <!-- DESCRIPCION -->
-                    <td class="truncate px-4 py-3 text-xs">
-                        {{ $content->description }}
-                    </td>
-
-                    <!-- DURACIÓN -->
-                    <td class="px-4 py-3 text-sm">
-                        {{ $content->duration }}
-                    </td>
-
-                    <!-- AÑO -->
-                    <td class="px-4 py-3 text-sm">
-                        {{ $content->year }}
+                        {{ $content->name }}
                     </td>
 
                     <!-- SERIE -->
                     <td class="px-4 py-3 text-sm">
-                        {{ $content->is_serie }}
+                        @if($content->is_serie)
+                            Serie
+                        @else
+                            Película
+                        @endif
                     </td>
 
-                    <!-- TEMPORADAS -->
+                    <!-- Editado el -->
                     <td class="px-4 py-3 text-sm">
-                        {{ $content->seasons }}
+                        {{ $content->updated_at }}
                     </td>
 
-                    <!-- ENLACE IMAGEN -->
-                    <td class="truncate px-4 py-3 text-sm">
-                        {{ $content->image_path }}
+                    <!-- Creado el -->
+                    <td class="px-4 py-3 text-sm">
+                        {{ $content->created_at }}
                     </td>
 
-                    <!-- ENLACE CONTENIDO -->
-                    <td class="truncate px-4 py-3 text-sm">
-                        {{ $content->link_path }}
+                    <!-- Ver -->
+                    <td>                        
+                        <a class="flex a-table" href="{{route('content.show', $content->id)}}">Ver
+                            <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                </path>
+                            </svg>
+                        </a>                        
                     </td>
                 </tr>
                 @endforeach
@@ -102,38 +75,11 @@ aria-hidden="true"
     </div>
 </div>
 
-{{-- 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Duración</th>
-            <th>Año</th>
-            <th>Serie</th>
-            <th>Temporadas</th>
-            <th>Enlace Imagen</th>                
-            <th>Enlace Contenido</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($contents as $content)
-            <tr>
-                <td>{{ $content->id }}</td>
-                <td> 
-                    <a href="{{route('content.show', $content->id)}}">{{ $content->name }}</a>                      
-                </td> 
-                <td> {{ $content->description }} </td>
-                <td> {{ $content->duration }} </td>
-                <td> {{ $content->year }} </td>
-                <td> {{ $content->is_serie }} </td>
-                <td> {{ $content->seasons }} </td>                
-                <td> {{ $content->image_path }} </td>
-                <td> {{ $content->link_path }} </td>
-            </tr>
-        @endforeach
-    </tbody>
-</table> --}}
+<iframe src="https://drive.google.com/file/d/1-s8nFGwp8gEpwfgwr3DftLXnsTmLDK_2/preview" 
+    width="100%" 
+    height="800px">
+</iframe>
+
+
 
 @endsection

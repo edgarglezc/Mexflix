@@ -22,6 +22,10 @@ class ContentFactory extends Factory
     public function definition()
     {
         $is_serie = $this->faker->numberBetween(0,1);
+        $link_path = "https://www.youtube.com/embed/DPAL7DHwN9Q";
+        if($is_serie){
+            $link_path = "";
+        }
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->sentence(),
@@ -29,8 +33,8 @@ class ContentFactory extends Factory
             'year' => $this->faker->regexify('[0-9]{4}'),
             'is_serie' => $is_serie,
             'seasons' => 0,
-            'image_path' => $this->faker->regexify('http://[a-z]{10}\.com'),
-            'link_path' => $this->faker->regexify('http://[a-z]{10}\.com'),
+            'image_path' => "https://hips.hearstapps.com/es.h-cdn.co/fotoes/images/peliculas/interstellar/posters/18799170-1-esl-ES/Posters.jpg",            
+            'link_path' => $link_path,            
             'updated_at' => $this->faker->date() . $this->faker->time(),
         ];
     }

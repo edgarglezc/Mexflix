@@ -24,9 +24,10 @@ class ChapterFactory extends Factory
         return [
             'season_id' => $this->faker->numberBetween(1,50),
             'name' => $this->faker->word(),
+            'chapter' => $this->faker->numberBetween(1,15),
             'description' => $this->faker->sentence(),
             'duration' => $this->faker->randomNumber(2, true),
-            'link_path' => $this->faker->regexify('http://[a-z]{10}\.com'),
+            'link_path' => "https://www.youtube.com/embed/DPAL7DHwN9Q",
             'updated_at' => $this->faker->date() . $this->faker->time(),
         ];
     }

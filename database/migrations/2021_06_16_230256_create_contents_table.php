@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class CreateContentsTable extends Migration
 {
@@ -25,7 +25,7 @@ class CreateContentsTable extends Migration
             $table->string('image_path', 2048)->nullable();
             $table->string('link_path', 2048)->nullable();
             $table->timestamp('updated_at')->nullable();        
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at')->default(Carbon::now()->toDateTimeString());
         });
     }
 

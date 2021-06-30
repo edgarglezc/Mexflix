@@ -6,6 +6,7 @@ use App\Models\Content;
 use App\Models\Season;
 use App\Models\Category;
 use Illuminate\Http\Request;
+    use Carbon\Carbon;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 
 class ContentController extends Controller
@@ -13,7 +14,7 @@ class ContentController extends Controller
     public function __construct()
     {
         $this->middleware('auth');        
-        $this->middleware('isadmin');
+        $this->middleware('isadmin', ['except' => ['show', 'showSeason']]);
     }
 
     /**
@@ -109,7 +110,7 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Content $content)
-    {        
+    {              
         Content::where('id', $content->id)->update($request->except('_token', '_method'));
         return redirect()->route('content.show', $content);
     }
