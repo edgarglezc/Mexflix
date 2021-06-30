@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Edgar",
+        "email": "edgar@mexflix.org",
+        "email_verified_at": "30-06-2021 12:00:00",
+        "password": "12345678",
+        "is_admin": 1
+    },
+    {
+        "name": "Eslavi",
+        "email": "eslavi@mexflix.org",
+        "email_verified_at": "30-06-2021 12:00:00",
+        "password": "12345678" ,
+        "is_admin": 1
+    },
+    {
+        "name": "Renata",
+        "email": "renata@prueba.com",
+        "email_verified_at": "30-06-2021 12:00:00",
+        "password": "12345678",
+        "is_admin": 0
+    }
+]
