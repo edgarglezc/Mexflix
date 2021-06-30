@@ -44,9 +44,15 @@
     color: black;
 }
 
-.a-table:hover{
+.a-table-dark{
+    color: white;
+}
+
+.a-table:hover,
+.a-table-dark:hover{
     color: purple;
 }
+
 
 .button-nav:focus{
   --tw-bg-opacity: 1;

@@ -76,6 +76,10 @@ class ContentController extends Controller
         $content->image_path = $request->image_path;
         $content->save();
 
+        echo '<script type="text/javascript">
+                alert("Contenido creado correctamente");
+             </script>';
+
         return redirect()->route('content.index');
     }
 
@@ -112,6 +116,9 @@ class ContentController extends Controller
     public function update(Request $request, Content $content)
     {              
         Content::where('id', $content->id)->update($request->except('_token', '_method'));
+        echo '<script type="text/javascript">
+                alert("Contenido actualizado correctamente");
+             </script>';
         return redirect()->route('content.show', $content);
     }
 
@@ -124,6 +131,9 @@ class ContentController extends Controller
     public function destroy(Content $content)
     {        
         $content->delete();
+        echo '<script type="text/javascript">
+                alert("Contenido eliminado exitosamente");
+             </script>';
         return redirect()->route('content.index');
     }
 
@@ -136,7 +146,11 @@ class ContentController extends Controller
      */
     public function addCategory(Request $request, Content $content)
     {        
-        $content->categories()->attach($request->category_id);         
+        // if(!$request->category_id)
+        $content->categories()->attach($request->category_id);
+        echo '<script type="text/javascript">
+                confirm("Categoria agregada");
+             </script>';         
         return redirect()->route('content.show', $content);
     }
 
@@ -150,6 +164,11 @@ class ContentController extends Controller
     public function deleteCategory(Request $request, Content $content)
     {         
         $content->categories()->detach($request->category_id);
+        echo'<script type="text/javascript">
+                alert("Categoria eliminada");
+             </script>';
         return redirect()->route('content.show', $content);
     }
 }
+
+?>

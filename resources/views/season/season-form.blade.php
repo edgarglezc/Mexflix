@@ -11,6 +11,7 @@
 </div>
 
 <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 mt-6">
+    @include('partials.form-errors')
     @if(isset($season))
     {{-- Edición de contenido --}}
     <form action="{{route('season.update', $season)}}" method="POST">
