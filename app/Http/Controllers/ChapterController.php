@@ -43,8 +43,9 @@ class ChapterController extends Controller
      */
     public function store(Request $request)
     { 
-        $chapter = Chapter::create($request->all());        
+        Chapter::create($request->all());
         $season = Season::where('id', $request->season_id)->first();                
+
         $content = Content::where('id', $season->content_id)->first();       
         return view('season.season-show', compact('content', 'season'))->with('message', 'Capitulo creado exitosamente');
     }

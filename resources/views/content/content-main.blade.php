@@ -9,7 +9,7 @@
               <ul class="glide__slides items-center text-center mt-4">
               @foreach ($contents as $content)
               <li class="glide__slide text-gray-700 dark:text-gray-400 max-h-1">
-                  <a class="text-white mt-4" href="{{route('content.show', $content->id)}}">{{ $content->name }} <img src="{{ $content->image_path }}" alt=""></a>
+                  <a class="text-white mt-4" href="{{route('content.show', $content->id)}}">{{ $content->name }} <img style="height: 15rem;width:max-content;object-fit: cover;" src="{{ $content->image_path }}" alt=""></a>
               </li>
               @endforeach
               </ul>
