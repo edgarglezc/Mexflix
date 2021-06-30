@@ -10,8 +10,8 @@
     <form action="{{route('category.update', $category)}}" method="POST">
         @method('PATCH') {{--Para cumplir con el estandar--}}
         @csrf
-        <label for="name">Editar género:</label>
-        <input type="text" name="name" id="name" value="{{$category->name ?? ''}}" class="justify-between px-2 py-1 text-sm font-medium leading-5 text-black transition-colors duration-150 bg-current border border-transparent rounded-lg active:bg-purple-600 hover:bg-gray-100 focus:outline-none focus:shadow-outline-purple">
+        <label for="name" class="dark:text-white" >Editar género:</label>
+        <input type="text" name="name" id="name" value="{{$category->name ?? ''}}" class="justify-between px-2 py-1 text-sm font-medium leading-5 text-black dark:text-white transition-colors duration-150 bg-gray-100 border border-transparent rounded-lg active:bg-purple-600 hover:bg-gray-100 focus:outline-none focus:shadow-outline-purple dark:bg-gray-700">
         <div class="py-4">
             <button type="submit"
                 class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">

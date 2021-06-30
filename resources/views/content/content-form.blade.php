@@ -3,9 +3,9 @@
 @section('media')
 
 @if(isset($content))
-    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Editar Contenido</h2>
+    <h2 class="my-6 text-2xl font-semibold text-white dark:text-gray-200">Editar Contenido</h2>
 @else 
-    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Agregar Contenido</h2>
+    <h2 class="my-6 text-2xl font-semibold text-white dark:text-gray-200">Agregar Contenido</h2>
 @endif
 
 @if(isset($content))
@@ -128,10 +128,31 @@
         </form>
     </form>
     <script>
+        // $(document).ready(function() {
+        //     $('#is_serie').on('click', function(){
+        //         var checked = $('#is_serie').val();
+        //         // $("#is_serie").is(':checked')
+        //         if ($("#is_serie").is(':checked')) {
+        //             $("#duration_label").hide();
+        //             $("#year_label").hide();
+        //             $("#link_path_label").hide();
+        //         } 
+        //         else {
+        //             $("#duration_label").show();
+        //             $("#year_label").show();
+        //             $("#link_path_label").show();
+        //         }
+        //     });
+        // });
         $(document).ready(function() {
+            var checked = $('#is_serie').val();
+            if ($("#is_serie").is(':checked')) {
+                $("#duration_label").hide();
+                $("#year_label").hide();
+                $("#link_path_label").hide();
+            } 
             $('#is_serie').on('click', function(){
                 var checked = $('#is_serie').val();
-                // $("#is_serie").is(':checked')
                 if ($("#is_serie").is(':checked')) {
                     $("#duration_label").hide();
                     $("#year_label").hide();
