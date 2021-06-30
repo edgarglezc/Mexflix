@@ -45,7 +45,6 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-<<<<<<< HEAD
 Route::get('index', function () {
     return view('index');
 });
@@ -53,13 +52,12 @@ Route::get('index', function () {
 Route::get('/', function () {
     return view('index');
 })->name('index');
-=======
+
 Route::get('/content/main', function () {
     $contents = Content::all();
     $categories = Category::all();
     return view('content.content-main', compact('contents', 'categories'));
 });
->>>>>>> eslavi
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
