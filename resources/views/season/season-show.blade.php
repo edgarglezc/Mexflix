@@ -46,7 +46,7 @@
         </div>
 
         <!-- Tarejta del Nombre -->
-        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+        <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +64,7 @@
             </div>
         </div>
         <!-- Tarejta de la Temporada -->
-        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+        <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +82,7 @@
             </div>
         </div>
         <!-- Tarjeta de la descripción -->
-        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+        <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -102,7 +102,7 @@
         </div>        
         
         <!-- Tarjeta de las temporadas -->
-        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+        <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -121,7 +121,7 @@
         </div>
 
         <!-- Tarjeta del Año -->
-        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+        <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +141,7 @@
         </div>
         @if(Auth::user()->is_admin)
         <!-- Enlace a la imagen -->
-        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+        <div class="overflow-ellipsis overflow-hidden flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -162,7 +162,7 @@
     </div>
 </div>
 
-<div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
+<div class="min-w-0 p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800 mb-4">
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Capítulos</h2>    
     @if(Auth::user()->is_admin)
     <div>           

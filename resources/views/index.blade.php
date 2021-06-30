@@ -26,81 +26,53 @@
 <body class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed"
     style="background-image: url('img/landPage.png');">
     <div class="h-full">
-        <!--Nav-->
-        <div class="w-full container mx-auto">
-            <div class="w-full flex items-center justify-between">
-                <a class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-                    href="#">
-                    Mex<span
-                        class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-green-500 to-purple-500">flix</span>
-                </a>
-                @if (Route::has('login'))
-                <div class="hidden fixed top-2 right-8 px-6 py-4 sm:block">
-                    @auth
-                    <a href="{{ url('/content/main') }}"
-                        class="flex justify-between items-center px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                        Ingresar
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 20 20"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                        </svg>
+
+      <!--Nav-->
+      <div class="w-full container mx-auto">
+        <div class="w-full flex items-center justify-between">
+          <a class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
+            Mex<span class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-green-500 to-purple-500">flix</span>
+          </a>
+          @if (Route::has('login'))
+              <div class="hidden fixed top-2 right-8 px-6 py-4 sm:block">
+                  @auth
+                      <a href="{{ url('/content/main') }}" class="flex bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out">
+                      Ingresar
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                      </svg>
+                      </a>
+                  @else
+                    <a href="{{ route('login') }}" class="flex bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out">
+                      Iniciar sesion
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                      </svg>
                     </a>
-                    @else
-                    <a href="{{ route('login') }}"
-                        class="flex justify-between items-center px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                        Iniciar sesion
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 20 20"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                        </svg>
-                    </a>
-
-                    @endauth
-                </div>
-                @endif
-
-
-            </div>
+                    
+                  @endauth
+              </div>
+          @endif
+          
         </div>
+      </div>
 
-        <!--Main-->
-        <div class="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-            <!--Left Col-->
-            <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
-                <h1
-                    class="my-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-left">
-                    La
-                    <span
-                        class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
-                        plataforma mas esperada
-                    </span>
-                    de todo Mexico !
-                </h1>
-                <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left">
-                    Hola ! Ven y conoce todo lo que tenemos
-                    para ofrecerte hoy mismo
-                </p>
+      <!--Main-->
+      <div class="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+        <!--Left Col-->
+        <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
+          <h1 class="my-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-left">
+            La 
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
+              plataforma mas esperada
+            </span>
+             de todo Mexico !
+          </h1>
+          <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left">
+            Hola ! Ven y conoce todo lo que tenemos
+            para ofrecerte hoy mismo 
+          </p>
 
-                <form class="bg-gray-900 opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
-                    <div class="mb-4">
-                        <label class="block text-blue-300 py-2 font-bold mb-2" for="emailaddress">
-                            Signup for our newsletter
-                        </label>
-                        <input
-                            class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                            id="emailaddress" type="text" placeholder="you@somewhere.com" />
-                    </div>
-
-                    <div class="flex items-center justify-between pt-4">
-                        <button
-                            class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                            type="button">
-                            Sign Up
-                        </button>
-                    </div>
-                </form>
             </div>
 
             <!--Right Col-->

@@ -1,6 +1,7 @@
 @extends('layouts.temp')
 
 @section('media')
+  @forelse ($contents as $content)
     <div class="container">
       <div class="glide">
         <p class="text-white mt-4">Todo el contenido</p>
@@ -26,36 +27,43 @@
               </button>
           </div>
       </div>
+      @empty
+        <p></p>
+    @endforelse
 
       <!-- Categories carousel -->
       @foreach ($categories as $category)
-      <div class="container">
-        <div class="glide">
-          <p class="text-white mt-4">{{ $category->name }}</p>
-            <div class="glide__track" data-glide-el="track">
-                <ul class="glide__slides items-center text-center mt-4">
-                @foreach ($category->contents as $content)
-                <li class="glide__slide text-gray-700 dark:text-gray-400">
-                    <a class="text-white" href="{{route('content.show', $content->id)}}">{{ $content->name }} <img src="{{ $content->image_path }}" alt=""></a>
-                </li>
-                @endforeach
-                </ul>
-            </div>
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left button-nav px-4" data-glide-dir="<">
+        @forelse ($category->contents as $content)
+        <div class="container">
+          <div class="glide">
+            <p class="text-white mt-4">{{ $category->name }}</p>
+              <div class="glide__track" data-glide-el="track">
+                  <ul class="glide__slides items-center text-center mt-4">
+                  @foreach ($category->contents as $content)
+                  <li class="glide__slide text-gray-700 dark:text-gray-400">
+                      <a class="text-white" href="{{route('content.show', $content->id)}}">{{ $content->name }} <img src="{{ $content->image_path }}" alt=""></a>
+                  </li>
+                  @endforeach
+                  </ul>
+              </div>
+              <div class="glide__arrows" data-glide-el="controls">
+                  <button class="glide__arrow glide__arrow--left button-nav px-4" data-glide-dir="<">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                  <button class="glide__arrow glide__arrow--right button-nav px-4" data-glide-dir=">">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
                   </svg>
-                </button>
-                <button class="glide__arrow glide__arrow--right button-nav px-4" data-glide-dir=">">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
-                </svg>
-                </button>
-            </div>
+                  </button>
+              </div>
+          </div>
         </div>
-      </div>
-    @endforeach
+        @empty
+            <p></p>
+        @endforelse
+      @endforeach
 
     </div> 
 
