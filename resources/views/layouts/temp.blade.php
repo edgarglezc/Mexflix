@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/tailwind.output.css') }}" />
+
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="{{ asset('js/init-alpine.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
@@ -16,9 +17,11 @@
 
 <body>
     <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen}">
-        <!-- Sidebar -->
-        @include('layouts.side-bar')
-
+        @if(Auth::user()->is_admin)
+            <!-- Sidebar -->
+            @include('layouts.side-bar')
+        @endif
+        
         <div class="flex flex-col flex-1">
             <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
                 <div
@@ -37,7 +40,7 @@
                     @include('layouts.settings-bar')
                 </div>
             </header>
-            <main class="h-full pb-16 overflow-y-auto">
+            <main class="h-full pb-16 overflow-y-auto" style="background-image: url('/img/landPage.png');">
                 <!-- Remove everything INSIDE this div to a really blank page -->
                 <div class="container px-6 mx-auto grid">
                     @yield('media')

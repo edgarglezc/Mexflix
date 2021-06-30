@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Content;
+use App\Models\Category;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\ContentController;
@@ -23,6 +25,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('index', function () {
+    return view('index');
+});
+
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -39,12 +45,10 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-Route::get('index', function () {
-    return view('index');
-});
-
-Route::get('/', function () {
-    return view('index');
+Route::get('/content/main', function () {
+    $contents = Content::all();
+    $categories = Category::all();
+    return view('content.content-main', compact('contents', 'categories'));
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
