@@ -41,9 +41,11 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
-        if($request->name != '')
-            Category::create($request->all());
+    {       
+        $request->validate([
+            'name' => 'required|string|min:1|max:255'
+        ]);
+        Category::create($request->all());
         return redirect()->route('category.index')->with('message', 'Categoria creada exitosamente');
     }
 
@@ -77,7 +79,10 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Category $category)
-    {        
+    {     
+        $request->validate([
+            'name' => 'required|string|min:1|max:255'
+        ]);   
         Category::where('id', $category->id)->update($request->except('_token', '_method'));
         return redirect()->route('category.index')->with('message', 'Categoria actualizado exitosamente');
     }

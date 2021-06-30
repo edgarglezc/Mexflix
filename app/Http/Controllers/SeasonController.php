@@ -55,14 +55,16 @@ class SeasonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $season = new Season();
-        $season->content_id = $request->content_id;
-        $season->season = $request->season;
-        $season->description = $request->description;
-        $season->year = $request->year;
-        $season->image_path = $request->image_path;
-        $season->save();       
+    {        
+        $request->validate([
+            'content_id' => 'required',
+            'season' => 'required',
+            'description' => 'required|string|max:255',        
+            'year' => 'required|size:4',
+            'image_path' => 'required|string|max:2048',            
+        ]);   
+                
+        Season::create($request->all());
         
         return redirect()->route('content.show', $request->content_id)->with('message', 'Temporada creada exitosamente');
     }
@@ -99,7 +101,16 @@ class SeasonController extends Controller
      */
     public function update(Request $request, Season $season)
     {
+        $request->validate([
+            'content_id' => 'required',
+            'season' => 'required',
+            'description' => 'required|string|max:255',        
+            'year' => 'required|size:4',
+            'image_path' => 'required|string|max:2048'
+        ]);   
+
         Season::where('id', $season->id)->update($request->except('_token', '_method'));
+        
         return redirect()->route('content.show-season',[$season->content_id, $season->id])->with('message', 'Temporada actualizada exitosamente');
     }
 

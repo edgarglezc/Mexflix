@@ -18,4 +18,6 @@ class Season extends Model
     {
         return $this->hasMany(Chapter::class);
     }
+
+    protected $fillable = ['content_id', 'season', 'description', 'year', 'image_path'];
 }
