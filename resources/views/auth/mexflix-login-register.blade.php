@@ -35,7 +35,9 @@
             <button class="btn solid focus:outline-none">
               {{ __('Log in') }}
             </button>
-            <p class="social-text">O inicia sesion por medio de estas redes sociales</p>
+
+            <!-- Por si despues le agregamos esta funcion -->
+            <!-- <p class="social-text">O inicia sesion por medio de estas redes sociales</p>
             <div class="social-media">
               <a href="#" class="social-icon">
                 <i class="fab fa-facebook-f"></i>
@@ -49,7 +51,7 @@
               <a href="#" class="social-icon">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-            </div>
+            </div> -->
             <div style="margin:0.5rem;">
                 <a style="color:#7E3AF2;" href="{{ route('password.request') }}">
                 {{ __('Forgot your password?') }}
@@ -94,7 +96,8 @@
                 {{ __('Register') }}
             </button>
 
-            <p class="social-text">O registrate por medio de estas redes sociales</p>
+            <!-- Por si despues le agregamos esta funcion -->
+            <!-- <p class="social-text">O registrate por medio de estas redes sociales</p>
             <div class="social-media">
               <a href="#" class="social-icon">
                 <i class="fab fa-facebook-f"></i>
@@ -108,7 +111,7 @@
               <a href="#" class="social-icon">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-            </div>
+            </div> -->
           </form>
         </div>
       </div>
@@ -117,7 +120,7 @@
         <div class="panel left-panel">
           <div class="content">
             <h3>Eres nuevo aqui ?</h3>
-            <p>
+            <p class="mb-4">
               No esperes mas! Crea una cuenta hoy en Memflix y 
               disfruta de todo su amplio catalogo !
             </p>
@@ -130,7 +133,7 @@
         <div class="panel right-panel">
           <div class="content">
             <h3>Ya tienes cuenta ?</h3>
-            <p>
+            <p class="mb-4">
               Inicia sesion para seguir disfrutando de todo el
               contenido que Mexflix tiene ya para ti !
             </p>

@@ -25,7 +25,7 @@
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="Email" id="email" name="email" :value="old('email')"/>
             </div>
-            <button class="btn solid focus:outline-none">
+            <button class="btn solid focus:outline-none m-2 w-1/4">
                 {{ __('Email Password Reset Link') }}
             </button>
 						
@@ -37,7 +37,7 @@
         <div class="panel left-panel">
           <div class="content">
             <h3>Recordaste la contraseña ?</h3>
-            <p>
+            <p class="mb-4">
               Super! Entonces por que no iniciamos sesion y disfrutamos
 							de todo el amplio catalogo que Memflix tiene para ti ?
             </p>
