@@ -45,7 +45,9 @@ class ChapterController extends Controller
     { 
         Chapter::create($request->all());
         $season = Season::where('id', $request->season_id)->first();                
-        return redirect()->route('content.show-season', [$season->content_id, $season->id]);
+
+        $content = Content::where('id', $season->content_id)->first();       
+        return view('season.season-show', compact('content', 'season'))->with('message', 'Capitulo creado exitosamente');
     }
 
     /**
@@ -81,7 +83,7 @@ class ChapterController extends Controller
     public function update(Request $request, Chapter $chapter)
     {        
         Chapter::where('id', $chapter->id)->update($request->except('_token', '_method'));
-        return redirect()->route('season.show-chapter',[$chapter->season_id, $chapter->id]);
+        return redirect()->route('season.show-chapter',[$chapter->season_id, $chapter->id])->with('message', 'Capitulo actualizado exitosamente');
     }
 
     /**
@@ -94,6 +96,6 @@ class ChapterController extends Controller
     {        
         $season = Season::where('id', $chapter->season_id)->first();
         $chapter->delete();
-        return redirect()->route('content.show-season', [$season->content_id, $season->id]);
+        return redirect()->route('content.show-season', [$season->content_id, $season->id])->with('message', 'Contenido eliminado exitosamente');
     }
 }

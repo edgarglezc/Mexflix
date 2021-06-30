@@ -2,7 +2,7 @@
 
     <div class="py-4 text-gray-500 dark:text-gray-400">
         <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="{{ url('/content/main') }}">
-            Mexflix
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-green-500 to-purple-500">Mexflix</span>
         </a>
         <ul class="mt-6">
             <li class="relative px-6 py-3">

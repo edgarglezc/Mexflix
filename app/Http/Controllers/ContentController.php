@@ -84,11 +84,7 @@ class ContentController extends Controller
         // Inserción en la tabla
         Content::create($request->all());
 
-        echo '<script type="text/javascript">
-                alert("Contenido creado correctamente");
-             </script>';
-
-        return redirect()->route('content.index');
+        return redirect()->route('content.index')->with('message', 'Contenido creado exitosamente');
     }
 
     /**
@@ -126,10 +122,7 @@ class ContentController extends Controller
     public function update(Request $request, Content $content)
     {              
         Content::where('id', $content->id)->update($request->except('_token', '_method'));
-        echo '<script type="text/javascript">
-                alert("Contenido actualizado correctamente");
-             </script>';
-        return redirect()->route('content.show', $content);
+        return redirect()->route('content.show', $content)->with('message', 'Contenido actualizado exitosamente');
     }
 
     /**
@@ -141,10 +134,7 @@ class ContentController extends Controller
     public function destroy(Content $content)
     {        
         $content->delete();
-        echo '<script type="text/javascript">
-                alert("Contenido eliminado exitosamente");
-             </script>';
-        return redirect()->route('content.index');
+        return redirect()->route('content.index')->with('message', 'Contenido eliminado exitosamente');
     }
 
     /**
@@ -157,11 +147,8 @@ class ContentController extends Controller
     public function addCategory(Request $request, Content $content)
     {        
         // if(!$request->category_id)
-        $content->categories()->attach($request->category_id);
-        echo '<script type="text/javascript">
-                confirm("Categoria agregada");
-             </script>';         
-        return redirect()->route('content.show', $content);
+        $content->categories()->attach($request->category_id);      
+        return redirect()->route('content.show', $content)->with('message', 'Categoria agregada');
     }
 
     /**
@@ -174,10 +161,7 @@ class ContentController extends Controller
     public function deleteCategory(Request $request, Content $content)
     {         
         $content->categories()->detach($request->category_id);
-        echo'<script type="text/javascript">
-                alert("Categoria eliminada");
-             </script>';
-        return redirect()->route('content.show', $content);
+        return redirect()->route('content.show', $content)->with('message', 'Categoria eliminada');
     }
 }
 

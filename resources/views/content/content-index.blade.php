@@ -4,11 +4,19 @@
 
 <h2 class="my-6 text-2xl font-semibold text-white dark:text-gray-200">Listado de Contenido</h2>
 
-<div>
-    <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple dark:bg-orange-500"
-        href="{{ route('content.create') }}">
-        Agregar contenido
-    </a>
+<div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4 mt-8">
+    <div>
+        <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple dark:bg-orange-500"
+            href="{{ route('content.create') }}">
+            Agregar contenido
+        </a>
+    </div>
+
+    <!-- Mensaje con informacion del estatus del contenido -->
+    <div>
+        @include('partials.message-status')
+    </div>
+
 </div>
 
 <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs mt-6">
@@ -61,7 +69,7 @@
 
                     <!-- Ver -->
                     <td>                        
-                        <a class="flex a-table dark:a-table-dark" href="{{route('content.show', $content->id)}}">Ver
+                        <a class="flex a-table dark:hover:text-purple-600 dark:text-gray-400" href="{{route('content.show', $content->id)}}">Ver
                             <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
                                 </path>

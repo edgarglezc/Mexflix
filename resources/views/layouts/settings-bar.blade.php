@@ -23,7 +23,7 @@
     <li class="relative">
         <button class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
             @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account" aria-haspopup="true">
-            <img class="object-cover w-8 h-8 rounded-full" src="{{ Auth::user()->profile_photo_path }}" alt=""
+            <img class="object-cover w-8 h-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"
                 aria-hidden="true" />
         </button>
         <template x-if="isProfileMenuOpen">
@@ -44,7 +44,7 @@
                 @if(Auth::user()->is_admin)
                 <li class="flex">
                     <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#">
+                    href="{{ route('content.index') }}">
                         <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none" stroke-linecap="round"
                             stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                             <path

@@ -31,7 +31,7 @@
       <div class="w-full container mx-auto">
         <div class="w-full flex items-center justify-between">
           <a class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-            Mex<span class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-green-500 to-purple-500">flix</span>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-green-500 to-purple-500">Mexflix</span>
           </a>
           @if (Route::has('login'))
               <div class="hidden fixed top-2 right-8 px-6 py-4 sm:block">
