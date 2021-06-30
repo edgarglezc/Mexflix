@@ -44,7 +44,7 @@ class CategoryController extends Controller
     {        
         if($request->name != '')
             Category::create($request->all());
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('message', 'Categoria creada exitosamente');
     }
 
     /**
@@ -79,7 +79,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {        
         Category::where('id', $category->id)->update($request->except('_token', '_method'));
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('message', 'Categoria actualizado exitosamente');
     }
 
     /**
@@ -91,6 +91,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {        
         $category->delete();
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('message', 'Categoria eliminada exitosamente');
     }
 }

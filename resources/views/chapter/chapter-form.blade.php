@@ -16,6 +16,12 @@
 </div>
 
 <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 mt-6">
+
+    <!-- Mensaje con informacion de los fallos -->
+    <div>
+        @include('partials.form-errors')
+    </div>
+
     @if(isset($chapter))
     {{-- Edición de contenido --}}
     <form action="{{route('chapter.update', $chapter)}}" method="POST">
@@ -68,7 +74,7 @@
 
         <div>
             <button type="submit"
-                class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">                    
+                class="flex items-center justify-between px-4 py-2 mt-5 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">                    
                 @if(isset($chapter))
                     <span>Guardar Cambios</span>
                 @else

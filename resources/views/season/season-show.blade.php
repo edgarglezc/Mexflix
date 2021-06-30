@@ -3,18 +3,25 @@
 
 <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4 mt-8">
     <div>
-        <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+        <a class="button-nav"
             href="{{ route('content.show', $content->id) }}">
             Regresar
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-4" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M8.445 14.832A1 1 0 0010 14v-2.798l5.445 3.63A1 1 0 0017 14V6a1 1 0 00-1.555-.832L10 8.798V6a1 1 0 00-1.555-.832l-6 4a1 1 0 000 1.664l6 4z" />
+            </svg>
         </a>
     </div>
-    
+
     @if(Auth::user()->is_admin)
     <!-- Botón para editar la temporada -->
     <div>
-        <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+        <a class="button-nav"
             href="{{ route('season.edit', $season) }}">
             Editar
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-4" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+            </svg>
         </a>
     </div>
     <!-- Botón para eliminar la temporada -->
@@ -23,17 +30,21 @@
             @csrf
             @method('DELETE')
             <button type="submit"
-                class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                class="button-nav-delete">
                 <span>Eliminar</span>
-                <svg class="w-4 h-4 ml-2 -mr-1" fill="currentColor" aria-hidden="true" viewBox="0 0 20 20">
-                    <path
-                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                        clip-rule="evenodd" fill-rule="evenodd">
-                    </path>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-4" viewBox="0 0 20 20" fill="currentColor"> 
+                <!-- #e91e1e -->
+                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                 </svg>
             </button>
         </form>
     </div>
+
+    <!-- Mensaje con informacion del estatus del contenido -->
+    <div>
+        @include('partials.message-status')
+    </div>
+    
     @endif
 </div>
 
@@ -162,19 +173,22 @@
     </div>
 </div>
 
-<div class="min-w-0 p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800 mb-4">
+<div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Capítulos</h2>    
     @if(Auth::user()->is_admin)
     <div>           
-        <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+        <a class="button-nav"
             href="{{ route('season.create-chapter', $season->id) }}">
             Agregar Capítulo
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
         </a>
     </div>
     @endif
     <div class="flex flex-col-4 flex-wrap">
     @foreach($chapters as $chapter)
-    <div class="grid grid-cols-1 grid-rows-2 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4 mt-6">
+    <div class="grid grid-cols-1 grid-rows-2 p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4 mt-6">
         <div>
             <a href="{{ route('season.show-chapter', [$season->id, $chapter->id]) }}">Capítulo {{$chapter->chapter}}</a>
         </div>        

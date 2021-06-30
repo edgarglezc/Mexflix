@@ -9,13 +9,18 @@
     ></script>
     <link rel="stylesheet" href= "{{ asset('css/style-register-login.css') }}" />
     <link href="{{ asset('css/tailwind.output.css') }}" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <title>Inicio de sesion</title>
   </head>
   <body>
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          @include('partials.form-errors')
+          <div id="mssg-error" class="mt-4">
+            @include('partials.form-errors')
+          </div>
           <form method="POST" action="{{ route('login') }}" class="sign-in-form">
             @csrf
             <h2 class="title">Inicia sesion</h2>
@@ -139,5 +144,19 @@
     </div>
 
     <script src="{{ asset('js/app-register-login.js') }}"></script>
+    <script>
+      $(document).ready(function() {
+
+          $('#sign-in-btn').on('click', function(){
+            $("#mssg-error").hide("slow", function() {});
+          });
+
+          $('#sign-up-btn').on('click', function(){
+              $("#mssg-error").hide("slow", function() {});
+          });
+
+      });
+
+    </script>
   </body>
 </html>

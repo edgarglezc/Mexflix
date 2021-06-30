@@ -26,12 +26,12 @@
     </form>
 </div>
 @else
-<div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 mt-6">
+<div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 mt-6 grid gap-6 grid-cols-2">
     {{-- Creación de contenido --}}
     <form action="{{route('category.store')}}" method="POST">
         @csrf
         <label for="name" class="dark:text-white">Agregar género:</label>
-        <input type="text" name="name" id="name" value="{{$category->name ?? ''}}" class="justify-between px-2 py-1 text-sm font-medium leading-5 text-black transition-colors duration-150 bg-current border border-transparent rounded-lg active:bg-purple-600 hover:bg-gray-100 focus:outline-none focus:shadow-outline-purple dark:bg-gray-700">
+        <input type="text" name="name" id="name" value="{{$category->name ?? ''}}" class="justify-between px-2 py-1 text-sm font-medium leading-5 text-black transition-colors duration-150 bg-gray-100 border border-transparent rounded-lg active:bg-purple-600 hover:bg-gray-100 focus:outline-none focus:shadow-outline-purple dark:bg-gray-700">
         <div class="py-4">
             <button type="submit"
                 class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple dark:bg-orange-500">
@@ -44,6 +44,12 @@
             </button>
         </div>
     </form>
+
+    <!-- Mensaje con informacion del estatus del contenido -->
+    <div>
+        @include('partials.message-status')
+    </div>
+
 </div>
 
 <div class="flex flex-col-4 flex-wrap">

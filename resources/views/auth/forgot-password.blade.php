@@ -20,12 +20,12 @@
           </div>
 				<form method="POST" action="{{ route('password.email') }}" class="sign-in-form">
             @csrf
-            <h2 class="title">Olvide la contraseña</h2>
+            <h2 class="title">Restablecer contraseña</h2>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="Email" id="email" name="email" :value="old('email')"/>
             </div>
-            <button class="btn solid">
+            <button class="btn solid focus:outline-none">
                 {{ __('Email Password Reset Link') }}
             </button>
 						

@@ -34,6 +34,12 @@
             </button>
         </form>
     </div>
+
+    <!-- Mensaje con informacion del estatus del contenido -->
+    <div>
+        @include('partials.message-status')
+    </div>
+    
     @endif
 </div>
 
