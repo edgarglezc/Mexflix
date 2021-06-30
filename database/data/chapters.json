@@ -1,3 +1,11 @@
 [
-    
+    {
+        "id": 1,
+        "season_id": 1,
+        "chapter": 1,
+        "name": "Piloto",
+        "description": "Tarde gris en Chicago, un peligroso incendio termina con la vida de uno de los miembros del equipo de bomberos, cuando intentaban liberar a una víctima encerrada en un ático. Matthew Casey y Kelly Severide se cruzan acusaciones sobre lo ocurrido. Además, Casey está completamente afectado también por la ruptura con su pareja Hallie.",
+        "duration": 43,
+        "link_path": "https://drive.google.com/file/d/1IGCBN7n49meS-_6NjkvBlHBNmq_UYJWH/preview"
+    }
 ]

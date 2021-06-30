@@ -173,7 +173,7 @@
     </div>
     @endif
     <div class="flex flex-col-4 flex-wrap">
-    @foreach($season->chapters()->get() as $chapter)
+    @foreach($chapters as $chapter)
     <div class="grid grid-cols-1 grid-rows-2 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4 mt-6">
         <div>
             <a href="{{ route('season.show-chapter', [$season->id, $chapter->id]) }}">Capítulo {{$chapter->chapter}}</a>

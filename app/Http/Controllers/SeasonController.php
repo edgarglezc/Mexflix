@@ -43,7 +43,7 @@ class SeasonController extends Controller
     public function showChapter($season_id, $chapter_id)
     {
         $season = Season::where('id', $season_id)->first();        
-        $chapter = Chapter::where('id', $chapter_id)->first();        
+        $chapter = Chapter::where('id', $chapter_id)->first();
         
         return view('chapter.chapter-show', compact('season', 'chapter'));
     }

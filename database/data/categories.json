@@ -1,3 +1,35 @@
 [
-    
+    {
+        "name": "Terror"
+    },
+    {
+        "name": "Comedia"
+    },
+    {
+        "name": "Romance"
+    },
+    {
+        "name": "Ficción"
+    },
+    {
+        "name": "Acción"        
+    },
+    {
+        "name": "Musical"
+    },
+    {
+        "name": "Drama"
+    },
+    {
+        "name": "Aventura"
+    },
+    {
+        "name": "Ciencia Ficción"
+    },
+    {
+        "name": "Fantasía"
+    },
+    {
+        "name": "Suspenso"
+    }
 ]
