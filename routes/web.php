@@ -57,7 +57,7 @@ Route::get('/content/main', function () {
     $contents = Content::all();
     $categories = Category::all();
     return view('content.content-main', compact('contents', 'categories'));
-});
+})->name('content-main');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

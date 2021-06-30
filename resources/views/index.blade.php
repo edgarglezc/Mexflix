@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -13,16 +14,19 @@
     <link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet" />
 
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
-      html {
-        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-      }
+        html {
+            font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
     </style>
-  </head>
+</head>
 
-  <body class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style="background-image: url('img/landPage.png');">
+<body class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed"
+    style="background-image: url('img/landPage.png');">
     <div class="h-full">
+
       <!--Nav-->
       <div class="w-full container mx-auto">
         <div class="w-full flex items-center justify-between">
@@ -50,7 +54,6 @@
               </div>
           @endif
           
-            
         </div>
       </div>
 
@@ -69,30 +72,34 @@
             Hola ! Ven y conoce todo lo que tenemos
             para ofrecerte hoy mismo 
           </p>
-        </div>
 
-        <!--Right Col-->
-        <div class="w-full xl:w-3/5 p-12 overflow-hidden">
-          <img class="mx-auto w-full md:w-4/5 transform -rotate-5 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6" src="img/watch.svg" />
-        </div>
+            </div>
 
-        <div class="mx-auto md:pt-16">
-          <p class="text-blue-400 font-bold pb-8 lg:pb-6 text-center">
-            Descarga nuestra aplicacion:
-          </p>
-          <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
-            <img src="img/App Store.svg" class="h-12 pr-12 transform hover:scale-125 duration-300 ease-in-out" />
-            <img src="img/Play Store.svg" class="h-12 transform hover:scale-125 duration-300 ease-in-out" />
-          </div>
-        </div>
+            <!--Right Col-->
+            <div class="w-full xl:w-3/5 p-12 overflow-hidden">
+                <img class="mx-auto w-full md:w-4/5 transform -rotate-5 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6"
+                    src="img/watch.svg" />
+            </div>
 
-        <!--Footer-->
-        <div class="w-full pt-16 pb-6 text-sm text-center md:text-left fade-in">
-          <a class="text-gray-500 no-underline hover:no-underline" href="#">&copy; Mexflix 2021</a>
-          - by
-          <a class="text-gray-500 no-underline hover:no-underline" href="#">Mexflix Team</a>
+            <div class="mx-auto md:pt-16">
+                <p class="text-blue-400 font-bold pb-8 lg:pb-6 text-center">
+                    Descarga nuestra aplicacion:
+                </p>
+                <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
+                    <img src="img/App Store.svg"
+                        class="h-12 pr-12 transform hover:scale-125 duration-300 ease-in-out" />
+                    <img src="img/Play Store.svg" class="h-12 transform hover:scale-125 duration-300 ease-in-out" />
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="w-full pt-16 pb-6 text-sm text-center md:text-left fade-in">
+                <a class="text-gray-500 no-underline hover:no-underline" href="#">&copy; Mexflix 2021</a>
+                - by
+                <a class="text-gray-500 no-underline hover:no-underline" href="#">Mexflix Team</a>
+            </div>
         </div>
-      </div>
     </div>
-  </body>
+</body>
+
 </html>

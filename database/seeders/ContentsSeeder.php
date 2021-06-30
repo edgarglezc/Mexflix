@@ -19,10 +19,11 @@ class ContentsSeeder extends Seeder
         $data = json_decode($json);
         foreach($data as $content){
             Content::create(array(
+                'id' => $content->id,
                 'name' => $content->name,
                 'description' => $content->description,
                 'duration' => $content->duration,
-                'year' => $content->duration,
+                'year' => $content->year,
                 'is_serie' => $content->is_serie,
                 'seasons' => $content->seasons,
                 'image_path' => $content->image_path,

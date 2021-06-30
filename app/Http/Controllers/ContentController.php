@@ -49,8 +49,9 @@ class ContentController extends Controller
     public function showSeason($content_id, $season_id)
     {        
         $content = Content::where('id', $content_id)->first();        
-        $season = Season::where('id', $season_id)->first();                
-        return view('season.season-show', compact('content', 'season'));
+        $season = Season::where('id', $season_id)->first();     
+        $chapters = $season->chapters()->with('season')->get();
+        return view('season.season-show', compact('content', 'season', 'chapters'));
     }
 
     /**
@@ -91,8 +92,10 @@ class ContentController extends Controller
      */
     public function show(Content $content)
     {        
-        $categories = Category::get();
-        return view('content.content-show', compact('content', 'categories'));
+        $categories = Category::get();        
+        $contentCategories = $content->categories()->with('contents')->get();
+        $contentSeasons = $content->seasons()->with('content')->get();
+        return view('content.content-show', compact('content', 'categories', 'contentCategories', 'contentSeasons'));
     }
 
     /**

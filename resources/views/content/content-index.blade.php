@@ -75,12 +75,10 @@
     </div>
 </div>
 
+
 <!-- Tas bien? xddd -->
 <iframe src="https://drive.google.com/file/d/1-s8nFGwp8gEpwfgwr3DftLXnsTmLDK_2/preview" 
     width="100%" 
     height="800px">
 </iframe>
-
-
-
 @endsection

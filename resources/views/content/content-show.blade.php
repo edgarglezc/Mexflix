@@ -2,10 +2,10 @@
 @section('media')
 
 <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4 mt-8">
+    @if(Auth::user()->is_admin)
     <div>
         <a class="button-nav"
             href="{{ route('content.index') }}">
-
             Regresar al inicio
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-4" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M8.445 14.832A1 1 0 0010 14v-2.798l5.445 3.63A1 1 0 0017 14V6a1 1 0 00-1.555-.832L10 8.798V6a1 1 0 00-1.555-.832l-6 4a1 1 0 000 1.664l6 4z" />
@@ -13,8 +13,6 @@
 
         </a>
     </div>
-
-    @if(Auth::user()->is_admin)
     <!-- Botón para editar contenido -->
     <div>
         <a class="button-nav"
@@ -25,7 +23,6 @@
             </svg>
         </a>
     </div>
-    
     <!-- Botón para eliminar contenido -->
     <div>
         <form action="{{route('content.destroy', $content)}}" method="POST">
@@ -39,6 +36,17 @@
                 </svg>
             </button>
         </form>
+    </div>
+    @else 
+    <div>
+        <a class="button-nav"
+            href="{{ route('content-main') }}">
+            Regresar a "Todo el Contenido"
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-4" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M8.445 14.832A1 1 0 0010 14v-2.798l5.445 3.63A1 1 0 0017 14V6a1 1 0 00-1.555-.832L10 8.798V6a1 1 0 00-1.555-.832l-6 4a1 1 0 000 1.664l6 4z" />
+            </svg>
+
+        </a>
     </div>
     @endif
 </div>
@@ -218,8 +226,8 @@
     </form>
     @endif
     <div class="flex flex-col-4 flex-wrap">
-        @foreach ($content->categories as $category)
-        <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4">
+        @foreach ($contentCategories as $category)
+        <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4 mt-4">
             <div class="p-3 mr-4 text-purple-600 bg-transparent rounded-full dark:text-orange-100 dark:bg-orange-500">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -266,7 +274,7 @@
     </div>
     @endif
     <div class="flex flex-col-4 flex-wrap">
-    @foreach($content->seasons()->get() as $season)
+    @foreach($contentSeasons as $season)
     <div class="grid grid-cols-1 grid-rows-2 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4 mt-6">
         <div>
             <a href="{{ route('content.show-season', [$content->id, $season->id]) }}">
