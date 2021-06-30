@@ -23,4 +23,11 @@ class Content extends Model
     {
         return $this->hasMany(Season::class);
     }    
+
+    public function isSerie()
+    {
+        if($this->is_serie) return "on";        
+    }
+
+    protected $fillable = ['name', 'description', 'is_serie', 'duration', 'year', 'image_path', 'link_path'];
 }
