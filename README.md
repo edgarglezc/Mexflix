@@ -24,16 +24,17 @@ Los administradores tambien tendran una amplia cantidad de maneras de manejar la
 1. Clonar el proyecto en `C:\laragon\www`: `git clone https://github.com/edgarglezc/Mexflix.git` 
 2. Cambiarse al directorio del proyecto: `cd Mexflix`
 3. Instalar dependiencias mediante composer: `composer install`
-4. Crear archivo de variables de entorno: `cp .env.example .env`
-5. Crear llave: `php artisan key:generate`
-6. Configurar los datos del mailtrap en el archivo: `.env`
-7. Crear la base de datos en tu sistema gestor de bases de datos: `CREATE DATABASE mexflix`
-8. Configurar el nombre de la base de datos en el archivo `.env`
-9. Link storage: `php artisan storage:link`
-10. Configurar nombre de base de datos en _.env_ y ejecutar migraciones: `php artisan migrate`
-11. Para datos reales, ejecutar seeds: `php artisan db:seed --class=DatabaseSeeder`
-12. Para datos de prueba, ejecutar seeds: `php artisan db:seed --class=TestDatabaseSeeder`
-13. Registrar el localhost `127.0.0.1 mexflix.test #laragon magic!` en el archivo `hosts` de Laragon
+4. Usar el comando: `npm install`
+5. Crear archivo de variables de entorno: `cp .env.example .env`
+6. Crear llave: `php artisan key:generate`
+7. Configurar los datos del mailtrap en el archivo: `.env`
+8. Crear la base de datos en tu sistema gestor de bases de datos: `CREATE DATABASE mexflix`
+9. Configurar el nombre de la base de datos en el archivo `.env`
+10. Link storage: `php artisan storage:link`
+11. Configurar nombre de base de datos en _.env_ y ejecutar migraciones: `php artisan migrate`
+12. Para datos reales, ejecutar seeds: `php artisan db:seed --class=DatabaseSeeder`
+13. Para datos de prueba, ejecutar seeds: `php artisan db:seed --class=TestDatabaseSeeder`
+14. Registrar el localhost `127.0.0.1 mexflix.test #laragon magic!` en el archivo `hosts` de Laragon
 
 ---
 
