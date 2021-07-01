@@ -78,7 +78,7 @@ class ContentController extends Controller
         if($request->hasFile('image_temp')){
             $image_path = $request->file('image_temp')->store('images');
             $request->merge(['image_path' => $image_path,]);        
-        }
+        }                
        
         $request->validate([
             'name' => 'required|string|min:1|max:255',
@@ -132,20 +132,19 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Content $content)
-    {     
+    {   
         if($request->has('is_serie')) $request->merge(['is_serie' => 1,]);        
         else $request->merge(['is_serie' => 0,]);      
 
         if($request->duration == null) $request->merge(['duration' => 0,]);
-        if($request->year == null) $request->merge(['year' => '2000',]);    
-
+        if($request->year == null) $request->merge(['year' => '2000',]);        
+        
         $request->validate([
             'name' => 'required|string|min:1|max:255',
             'description' => 'required|string|max:2048',
             'is_serie' => 'required',
             'duration' => Rule::requiredIf(!$request->has('is_serie')),
-            'year' => Rule::requiredIf(!$request->has('is_serie')),
-            'image_path' => 'required|string|max:2048',
+            'year' => Rule::requiredIf(!$request->has('is_serie')),            
             'link_path' => Rule::requiredIf(!$request->has('is_serie')),
         ]);    
         
