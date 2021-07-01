@@ -61,7 +61,7 @@
     <div class="grid gap-6 mb-8 md:grid-rows-5 xl:grid-rows-3 md:grid-cols-2 xl:grid-cols-4">
         <!-- Imagen del contenido -->
         <div>
-            <img src="{{ $content->image_path }}" alt="">
+            <img src="{{ asset($content->image_path) }}" alt="">
         </div>
 
         <!-- Tarejta del Nombre -->

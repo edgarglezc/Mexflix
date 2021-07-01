@@ -40,7 +40,7 @@
         @method('PATCH') {{-- Esto para cumplir con el estandar --}}
         @else
         {{-- Creación de contenido --}}
-        <form action="{{route('content.store')}}" method="POST">
+        <form action="{{route('content.store')}}" method="POST" enctype="multipart/form-data">
             @endif
             @csrf {{-- Token requerido para el envío del formulario --}}
 
@@ -93,12 +93,13 @@
                     name="year" id="year" value="{{ old('year') ?? $content->year ?? ''}}" />
             </label>            
 
-            <label for="image_path" class="block text-sm">
-                <span class="text-gray-700 dark:text-gray-400">Enlace de la imagen</span>
-                <input type="text"
+            {{-- value="{{ old('image_path') ?? $content->image_path ?? ''}}" --}}
+
+            <label for="image_temp" class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Seleccionar imagen</span>
+                <input type="file"
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    placeholder="Escribe el nombre del contenido..." name="image_path" id="image_path"
-                    value="{{ old('image_path') ?? $content->image_path ?? ''}}" />
+                    name="image_temp" id="image_temp"/>
             </label>
 
             <label for="link_path" class="block text-sm" id="link_path_label">

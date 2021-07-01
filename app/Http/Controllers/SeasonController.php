@@ -55,11 +55,11 @@ class SeasonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
+    {      
         $request->validate([
             'content_id' => 'required',
             'season' => 'required',
-            'description' => 'required|string|max:255',        
+            'description' => 'required|string|max:2048',        
             'year' => 'required|size:4',
             'image_path' => 'required|string|max:2048',            
         ]);   
@@ -104,7 +104,7 @@ class SeasonController extends Controller
         $request->validate([
             'content_id' => 'required',
             'season' => 'required',
-            'description' => 'required|string|max:255',        
+            'description' => 'required|string|max:2048',        
             'year' => 'required|size:4',
             'image_path' => 'required|string|max:2048'
         ]);   

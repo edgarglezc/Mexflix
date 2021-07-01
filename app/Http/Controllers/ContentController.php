@@ -44,7 +44,8 @@ class ContentController extends Controller
 
     public function createSeason($content_id)
     {              
-        $content = Content::where('id', $content_id)->first();        
+        $content = Content::where('id', $content_id)->first();                
+
         return view('season.season-form', compact('content'));
     }
 
@@ -52,7 +53,10 @@ class ContentController extends Controller
     {        
         $content = Content::where('id', $content_id)->first();        
         $season = Season::where('id', $season_id)->first();     
+
+        // Eager Loading de los capitulos de una temporada
         $chapters = $season->chapters()->with('season')->get();
+
         return view('season.season-show', compact('content', 'season', 'chapters'));
     }
 
@@ -70,16 +74,21 @@ class ContentController extends Controller
 
         if($request->duration == null) $request->merge(['duration' => 0,]);
         if($request->year == null) $request->merge(['year' => '2000',]);        
-
+                
+        if($request->hasFile('image_temp')){
+            $image_path = $request->file('image_temp')->store('images');
+            $request->merge(['image_path' => $image_path,]);        
+        }
+       
         $request->validate([
             'name' => 'required|string|min:1|max:255',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string|max:2048',
             'is_serie' => 'required',
             'duration' => Rule::requiredIf(!$request->has('is_serie')),
             'year' => ['size:4', Rule::requiredIf(!$request->has('is_serie'))],
-            'image_path' => 'required|string|max:2048',
+            'image_path' => 'required',
             'link_path' => ['max:2048', Rule::requiredIf(!$request->has('is_serie'))]
-        ]);        
+        ]);
 
         // Inserción en la tabla
         Content::create($request->all());
@@ -95,9 +104,12 @@ class ContentController extends Controller
      */
     public function show(Content $content)
     {        
-        $categories = Category::get();        
+        $categories = Category::get();       
+        
+        // Eager Loading de los géneros y temporadas de un contenido
         $contentCategories = $content->categories()->with('contents')->get();
         $contentSeasons = $content->seasons()->with('content')->get();
+        
         return view('content.content-show', compact('content', 'categories', 'contentCategories', 'contentSeasons'));
     }
 
@@ -129,7 +141,7 @@ class ContentController extends Controller
 
         $request->validate([
             'name' => 'required|string|min:1|max:255',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string|max:2048',
             'is_serie' => 'required',
             'duration' => Rule::requiredIf(!$request->has('is_serie')),
             'year' => Rule::requiredIf(!$request->has('is_serie')),
@@ -161,8 +173,13 @@ class ContentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function addCategory(Request $request, Content $content)
-    {        
-        // if(!$request->category_id)
+    {                
+        foreach($content->categories as $category){
+            if($category->id == $request->category_id){
+                return redirect()->route('content.show', $content)->with('message', 'Ya existe esta categoría en este contenido');        
+            }
+        }
+
         $content->categories()->attach($request->category_id);      
         return redirect()->route('content.show', $content)->with('message', 'Categoria agregada');
     }
