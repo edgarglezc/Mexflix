@@ -32,13 +32,24 @@ class SeasonFactory extends Factory
                 $content_id = $random;
             }
         }
+
+        $array = [
+            'images/test_titanic.jpg',
+            'images/test_shrek.jpg',
+            'images/test_avatar.png',
+            'images/test_her.jpg',
+            'images/test_magoz.jpg'
+        ];
+
+        $image_path = $array[$this->faker->numberBetween(0,4)];
+
         return [
             'content_id' => $content_id,
             'season' => $this->faker->numberBetween(1,15),
             'description' => $this->faker->sentence(),
             'year' => $this->faker->regexify('[0-9]{4}'),
             'chapters' => 0,
-            'image_path' => "https://hips.hearstapps.com/es.h-cdn.co/fotoes/images/peliculas/interstellar/posters/18799170-1-esl-ES/Posters.jpg",
+            'image_path' => $image_path,
             'created_at' => $this->faker->date() . $this->faker->time(),
         ];
     }

@@ -287,7 +287,7 @@
     <div class="grid grid-cols-1 grid-rows-2 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mr-4 mb-4 mt-6">
         <div>
             <a href="{{ route('content.show-season', [$content->id, $season->id]) }}">
-                <img src="{{ $season->image_path }}" width="300px">
+                <img src="{{ asset($season->image_path) }}" width="300px">
             </a>
         </div>
         <div>

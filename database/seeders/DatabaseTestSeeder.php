@@ -14,10 +14,12 @@ class DatabaseTestSeeder extends Seeder
     public function run()
     {
         $this->call([
+            UsersSeeder::class,
             TestCategoriesSeeder::class,
             TestContentsSeeder::class,
             TestSeasonsSeeder::class,
-            TestChaptersSeeder::class
+            TestChaptersSeeder::class,
+            TestCategoryContentSeeder::class
         ]);
     }
 }

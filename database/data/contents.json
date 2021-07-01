@@ -7,7 +7,7 @@
         "year": "2021",
         "is_serie": 0,
         "seasons": 0,
-        "image_path": "https://static.cinepolis.com/resources/mx/movies/posters/414x603/36204-715581-20210601021907.jpg",
+        "image_path": "images/elconjuro3.jpg",
         "link_path": "https://drive.google.com/file/d/1kTzJ5aVb-dBAefiDWpbRq1ofCOfBG6Jb/preview"
     },
     {
@@ -18,7 +18,7 @@
         "year": "2002",
         "is_serie": 0,
         "seasons": 0,
-        "image_path": "https://i.pinimg.com/originals/24/ea/f9/24eaf995440dacc4c8a8cf1bb6fdfc35.jpg",
+        "image_path": "images/harrypotter2.jpg",
         "link_path": "https://drive.google.com/file/d/17xC8t9eF-qDmxHp66flaju6QaVa_fm_R/preview"
     },
     {
@@ -29,7 +29,7 @@
         "year": "2004",
         "is_serie": 0,
         "seasons": 0,
-        "image_path": "https://es.web.img2.acsta.net/pictures/14/04/30/11/36/185120.jpg",
+        "image_path": "images/harrypotter3.jpg",
         "link_path": "https://drive.google.com/file/d/17g1iAfJtZct7TgRXB1fcv4ygoSypcUeU/preview"
     },
     {
@@ -40,7 +40,7 @@
         "year": "2005",
         "is_serie": 0,
         "seasons": 0,
-        "image_path": "https://es.web.img2.acsta.net/pictures/14/04/30/11/29/268191.jpg",
+        "image_path": "images/harrypotter4.jpg",
         "link_path": "https://drive.google.com/file/d/1oijFriqrAExuY_ICf-w6b-kbivILbWPU/preview"
     },
     {
@@ -51,7 +51,7 @@
         "year": "1940",
         "is_serie": 0,
         "seasons": 0,
-        "image_path": "https://cloud10.todocoleccion.online/juguetes-antiguos-juegos-coleccion/tc/2015/09/23/17/51442089.jpg",
+        "image_path": "images/pinocho.jpg",
         "link_path": "https://drive.google.com/file/d/1-s8nFGwp8gEpwfgwr3DftLXnsTmLDK_2/preview"
     },
     {
@@ -62,18 +62,18 @@
         "year": "2019",
         "is_serie": 0,
         "seasons": 0,
-        "image_path": "https://www.ecartelera.com/carteles/14800/14807/001_m.jpg",
+        "image_path": "images/mirreyesgodinez.jpg",
         "link_path": "https://drive.google.com/file/d/1pTO9BODgHZ2JexxzvPhqAPDv-Ar1Rf8o/preview"
     },
     {
         "id": 7,
-        "name": "Chciago en llamas",
+        "name": "Chicago en llamas",
         "description": "Las decisiones de los bomberos, equipos de rescate y paramédicos de la estación de bomberos 51 hacen la diferencia entre la vida y la muerte.",
         "duration": 0,
         "year": "2012",
         "is_serie": 1,
         "seasons": 0,
-        "image_path": "https://www.formulatv.com/images/series/posters/600/640/dest_1.jpg",
+        "image_path": "images/chicagofire.jpg",
         "link_path": ""
     },
     {
@@ -84,7 +84,7 @@
         "year": "2019",
         "is_serie": 1,
         "seasons": 0,
-        "image_path": "https://pics.filmaffinity.com/Chernobyl_Miniserie_de_TV-183665235-large.jpg",
+        "image_path": "images/chernobil.jpg",
         "link_path": ""
     }
 ]
