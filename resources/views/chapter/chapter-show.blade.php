@@ -9,7 +9,7 @@
             Regresar
         </a>
     </div>
-    
+
     @if(Auth::user()->is_admin)
     <div>
         <a class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
@@ -39,11 +39,11 @@
     <div>
         @include('partials.message-status')
     </div>
-    
+
     @endif
 </div>
 
-<div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">  
+<div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
         Capítulo {{$chapter->chapter}}
     </h2>
@@ -85,8 +85,8 @@
                     {{$chapter->description}}
                 </p>
             </div>
-        </div>        
-        
+        </div>
+
         <!-- Tarjeta de la Duración -->
         <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
@@ -105,10 +105,11 @@
                 </p>
             </div>
         </div>
-        
+
         @if(Auth::user()->is_admin)
         <!-- Tarjeta del enlace al contenido -->
-        <div class="overflow-ellipsis overflow-hidden flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800">
+        <div
+            class="overflow-ellipsis overflow-hidden flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -125,6 +126,45 @@
                 </p>
             </div>
         </div>
+        <!-- Tarjeta de Editado -->
+        <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800">
+            <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                    </path>
+                </svg>
+            </div>
+            <div>
+                <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    Editado el
+                </p>
+                <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    {{$chapter->updated_at}}
+                </p>
+            </div>
+        </div>
+
+        <!-- Tarjeta de Creado -->
+        <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs dark:bg-gray-800">
+            <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                    </path>
+                </svg>
+            </div>
+            <div>
+                <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    Creado el
+                </p>
+                <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    {{$chapter->created_at}}
+                </p>
+            </div>
+        </div>
         @endif
     </div>
 </div>
@@ -132,10 +172,7 @@
 <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 mb-4">
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Ver capítulo</h2>
     <!-- Prueba de un enlace para poner la movie -->
-    <iframe src="{{ $chapter->link_path }}" 
-        width="100%" 
-        height="800px"
-        allow="autoplay">
+    <iframe src="{{ $chapter->link_path }}" width="100%" height="800px" allow="autoplay">
     </iframe>
 </div>
 

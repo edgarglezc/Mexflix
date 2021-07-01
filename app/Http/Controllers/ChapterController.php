@@ -46,7 +46,7 @@ class ChapterController extends Controller
         $request->validate([
             'chapter' => 'required',
             'name' => 'required|string|min:1|max:255',
-            'description' => 'required|string|min:1|max:255',
+            'description' => 'required|string|min:1|max:2048',
             'duration' => 'required',
             'link_path' => 'required|string|max:2048'
         ]);
@@ -93,7 +93,7 @@ class ChapterController extends Controller
         $request->validate([
             'chapter' => 'required',
             'name' => 'required|string|min:1|max:255',
-            'description' => 'required|string|min:1|max:255',
+            'description' => 'required|string|min:1|max:2048',
             'duration' => 'required',
             'link_path' => 'required|string|max:2048'
         ]);
