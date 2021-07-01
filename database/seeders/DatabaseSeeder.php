@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             CategoriesSeeder::class,
             ContentsSeeder::class,
             SeasonsSeeder::class,
-            ChaptersSeeder::class
+            ChaptersSeeder::class,
+            CategoryContentSeeder::class,
         ]);
     }
 }

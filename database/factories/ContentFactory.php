@@ -26,6 +26,17 @@ class ContentFactory extends Factory
         if($is_serie){
             $link_path = "";
         }
+
+        $array = [
+            'images/test_titanic.jpg',
+            'images/test_shrek.jpg',
+            'images/test_avatar.png',
+            'images/test_her.jpg',
+            'images/test_magoz.jpg'
+        ];
+
+        $image_path = $array[$this->faker->numberBetween(0,4)];
+
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->sentence(),
@@ -33,7 +44,7 @@ class ContentFactory extends Factory
             'year' => $this->faker->regexify('[0-9]{4}'),
             'is_serie' => $is_serie,
             'seasons' => 0,
-            'image_path' => "https://hips.hearstapps.com/es.h-cdn.co/fotoes/images/peliculas/interstellar/posters/18799170-1-esl-ES/Posters.jpg",            
+            'image_path' => $image_path,
             'link_path' => $link_path,            
             'updated_at' => $this->faker->date() . $this->faker->time(),
         ];

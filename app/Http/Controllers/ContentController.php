@@ -184,6 +184,12 @@ class ContentController extends Controller
         return redirect()->route('content.show', $content)->with('message', 'Categoria agregada');
     }
 
+    static public function addCategorySeeder($content_id, $category_id)
+    {
+        $content = Content::where('id', $content_id)->first();
+        $content->categories()->attach($category_id);
+    }
+
     /**
      * Elimina el género seleccionado del contenido en cuestión 
      * 

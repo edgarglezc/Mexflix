@@ -1,35 +1,58 @@
 [
     {
+        "id": 1,
         "name": "Terror"
     },
     {
+        "id": 2,
         "name": "Comedia"
     },
     {
+        "id": 3,
         "name": "Romance"
     },
     {
+        "id": 4,
         "name": "Ficción"
     },
     {
+        "id": 5,
         "name": "Acción"        
     },
     {
+        "id": 6,
         "name": "Musical"
     },
     {
+        "id": 7,
         "name": "Drama"
     },
     {
+        "id": 8,
         "name": "Aventura"
     },
     {
+        "id": 9,
         "name": "Ciencia Ficción"
     },
     {
+        "id": 10,
         "name": "Fantasía"
     },
     {
+        "id": 11,
         "name": "Suspenso"
+    },
+    {
+        "id": 12,
+        "name": "Animación"
+    },
+    {
+        "id": 13,
+        "name": "Familiar"
+    },
+    {
+        "id": 14,
+        "name": "Documental"
     }
 ]
