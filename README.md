@@ -3,8 +3,8 @@
 
 ## Integrantes:
 
-- Edgar Alejandro González Camino<br>
-- Jonathan Eslavi Medina Dávila
+- Edgar González<br>
+- Jonathan Medina
 
 ---
 
@@ -50,6 +50,3 @@ password: 12345678
 
 ---
 
-## Participantes:
-| [<img src="https://avatars.githubusercontent.com/u/61925491?v=4" width="100px;"/><br /><sub><b>Edgar González</b></sub>](https://github.com/edgarglezc)<br />[💻]() [📖]() [👀]() [✅]() | [<img src="https://avatars.githubusercontent.com/u/56058934?v=4" width="100px;"/><br /><sub><b>Jontahan Medina</b></sub>](https://github.com/haloxito1819)<br />[😎]() [👌🏻]() [😔]() [👌🏻]()| 
-| :---: | :---: |
